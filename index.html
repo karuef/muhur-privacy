@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mühür — Gizlilik Politikası</title>
+<meta name="description" content="Mühür uygulamasının gizlilik politikası: hangi veriler işlenir, nereye gönderilir, ne kadar saklanır.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F3ECE1;
+    --card: #FBF7F0;
+    --terracotta: #C8694B;
+    --terra-soft: #E8B7A4;
+    --sage: #A9B89E;
+    --sage-soft: #D9E0D1;
+    --forest: #4A5D43;
+    --ink: #3A2E26;
+    --ink-soft: #7A6A5D;
+    --line: #E5DCCF;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 20px 96px;
+  }
+
+  header { margin-bottom: 40px; }
+
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin: 0 0 12px;
+  }
+
+  h1 {
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 700;
+    color: var(--forest);
+    font-size: 32px;
+    line-height: 1.25;
+    margin: 0 0 12px;
+  }
+
+  .updated {
+    color: var(--ink-soft);
+    font-size: 14px;
+    margin: 0;
+  }
+
+  h2 {
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 600;
+    color: var(--forest);
+    font-size: 24px;
+    line-height: 1.3;
+    margin: 44px 0 4px;
+  }
+
+  .rule {
+    width: 44px;
+    height: 2px;
+    background: var(--terracotta);
+    border: 0;
+    margin: 0 0 16px;
+  }
+
+  h3 {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    color: var(--ink);
+    font-size: 16px;
+    margin: 24px 0 6px;
+  }
+
+  p { margin: 0 0 14px; }
+
+  ul { margin: 0 0 14px; padding-left: 22px; }
+  li { margin-bottom: 8px; }
+
+  strong { font-weight: 600; }
+
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.88em;
+    background: var(--sage-soft);
+    padding: 1px 5px;
+    border-radius: 5px;
+  }
+
+  a {
+    color: var(--terracotta);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 22px 24px;
+    margin: 0 0 14px;
+  }
+
+  .card p:last-child, .card ul:last-child { margin-bottom: 0; }
+
+  .card--summary { margin-bottom: 28px; }
+
+  .card--summary ul { list-style: none; padding-left: 0; }
+
+  .card--summary li {
+    position: relative;
+    padding-left: 26px;
+  }
+
+  .card--summary li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--sage);
+  }
+
+  .note {
+    background: var(--sage-soft);
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin: 0 0 14px;
+    font-size: 15px;
+  }
+
+  .note p:last-child { margin-bottom: 0; }
+
+  .note--warn {
+    background: var(--card);
+    border: 1px solid var(--terra-soft);
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 14px 14px 0;
+  }
+
+  .note--warn .note-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 8px;
+  }
+
+  .flow {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 14px;
+    counter-reset: step;
+  }
+
+  .flow li {
+    position: relative;
+    padding-left: 44px;
+    margin-bottom: 16px;
+    counter-increment: step;
+  }
+
+  .flow li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 28px;
+    height: 28px;
+    border-radius: 14px;
+    background: var(--terracotta);
+    color: var(--cream);
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .table-scroll {
+    overflow-x: auto;
+    margin: 0 0 14px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  table {
+    width: 100%;
+    min-width: 460px;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+
+  th, td {
+    text-align: left;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+
+  th {
+    font-weight: 600;
+    color: var(--forest);
+    border-bottom: 1px solid var(--terra-soft);
+  }
+
+  tr:last-child td { border-bottom: 0; }
+
+  footer {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    color: var(--ink-soft);
+    font-size: 14px;
+  }
+
+  footer p { margin-bottom: 6px; }
+
+  @media (max-width: 480px) {
+    .wrap { padding: 32px 16px 72px; }
+    h1 { font-size: 27px; }
+    h2 { font-size: 21px; }
+    .card { padding: 18px; border-radius: 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Mühür</p>
+  <h1>Gizlilik Politikası</h1>
+  <p class="updated">Son güncelleme: 24 Ağustos 2026</p>
+</header>
+
+<div class="card card--summary">
+  <ul>
+    <li><strong>Hesap yok, giriş yok.</strong> Adınızı, e-postanızı, telefonunuzu istemiyoruz.</li>
+    <li><strong>Tarifleriniz telefonunuzda kalır.</strong> Bizim sunucumuzda tarif veritabanı yok.</li>
+    <li><strong>Yüklediğiniz fotoğraf ve metin, çözümlenmek üzere Google’a gönderilir.</strong> Bu bir paylaşımdır ve aşağıda açıkça anlatılmıştır.</li>
+    <li><strong>Analitik ve çökme takibi yok.</strong> Uygulamada hiçbir izleme aracı bulunmuyor.</li>
+  </ul>
+</div>
+
+<p>Bu politika, <strong>Mühür</strong> mobil uygulamasının kişisel verilerinizi nasıl işlediğini açıklar. Uygulamayı kullanarak burada anlatılan işleme faaliyetlerini kabul etmiş olursunuz.</p>
+
+<h2>1. Hesap ve kimlik bilgileri</h2>
+<hr class="rule">
+<p>Mühür’de <strong>hesap oluşturma, üye olma veya oturum açma yoktur.</strong> Uygulama sizden ad, soyad, e-posta adresi, telefon numarası, doğum tarihi, konum veya benzeri hiçbir kimlik bilgisi istemez; uygulama içinde böyle bir alan da bulunmaz.</p>
+<p>Sizi kişi olarak tanımlayan bir kullanıcı kaydımız olmadığı için, sunucu tarafında sizi diğer kullanıcılardan ayırt eden kalıcı bir profilimiz de yoktur.</p>
+
+<h2>2. Yüklediğiniz fotoğraf ve metin nasıl işlenir</h2>
+<hr class="rule">
+<p>Mühür’ün temel işlevi, bir tarif fotoğrafını veya yapıştırdığınız tarif metnini yapılandırılmış adımlara dönüştürmektir. Bu işlem <strong>cihazınızda değil, çevrimiçi olarak</strong> yapılır ve zorunlu olarak verinin cihazınızdan çıkmasını gerektirir.</p>
+
+<h3>İşlem akışı</h3>
+<ol class="flow">
+  <li>Fotoğrafı çekersiniz veya galeriden seçersiniz. Fotoğraf, gönderilmeden önce <strong>cihazınızda küçültülür</strong> (en fazla 1024 piksel genişlik, JPEG olarak sıkıştırılır). Metin yapıştırdıysanız metin olduğu gibi alınır.</li>
+  <li>Küçültülmüş fotoğraf veya metin, <strong>Supabase</strong> altyapısında çalışan sunucu fonksiyonumuza (<code>parse-recipe</code>) gönderilir. Bu fonksiyonun barındırıldığı proje bölgesi <strong>Frankfurt, Almanya (AWS eu-central-1) — Avrupa Birliği</strong> içindedir.</li>
+  <li>Fonksiyonumuz, aynı içeriği çözümlenmek üzere <strong>Google’ın Gemini API’sine</strong> (<code>generativelanguage.googleapis.com</code>) iletir. <strong>Bu, verinizin üçüncü bir tarafla — Google ile — paylaşılmasıdır.</strong></li>
+  <li>Google, içerikten çıkardığı tarif verisini (başlık, malzemeler, adımlar) bize döndürür; biz de bunu doğrulayıp uygulamaya, yani telefonunuza geri veririz.</li>
+</ol>
+
+<div class="note">
+  <p><strong>Yurt dışına veri aktarımı.</strong> Google Gemini API’si Google LLC tarafından işletilir ve istekler <strong>Türkiye ve Avrupa Birliği dışındaki sunuculara aktarılabilir.</strong> Bir tarif fotoğrafı veya metni yüklediğinizde, o içeriğin yurt dışına aktarılmasına açık rıza göstermiş olursunuz. Bu aktarımı istemiyorsanız fotoğraf veya metin yüklemeyin — uygulamanın kaydedilmiş tariflerinizi görüntüleme ve pişirme modu işlevleri çevrimdışı çalışmaya devam eder.</p>
+</div>
+
+<p>Gönderdiğiniz fotoğrafta tarifin yanı sıra istemeden başka şeyler de yer alabilir (mutfağınızın bir köşesi, el yazınız, arka planda görünen kişiler gibi). <strong>Yalnızca tarifin göründüğü fotoğrafları yüklemenizi öneririz.</strong></p>
+
+<h2>3. Gönderdiğiniz içerik saklanıyor mu?</h2>
+<hr class="rule">
+<p><strong>Bizim tarafımızda hayır.</strong> Sunucu fonksiyonumuz, aldığı fotoğrafı veya metni:</p>
+<ul>
+  <li>hiçbir veritabanına <strong>kaydetmez</strong> — uygulamanın tarif veya kullanıcı içeriği tutan bir veritabanı tablosu yoktur;</li>
+  <li>hiçbir dosya deposuna <strong>yüklemez</strong>;</li>
+  <li>günlük (log) kayıtlarına <strong>yazmaz</strong>.</li>
+</ul>
+<p>İçerik yalnızca isteğin işlendiği süre boyunca bellekte bulunur ve yanıt döndükten sonra kaybolur.</p>
+<p>Bir hata oluştuğunda teknik günlüğe yazılan bilgi, yalnızca hatanın türü ve AI servisinden dönen hata yanıtının kısa bir bölümüdür; <strong>gönderdiğiniz fotoğraf veya tarif metni bu kayıtlara girmez.</strong></p>
+<p>Ayrıca, herhangi bir internet hizmetinde olduğu gibi, altyapı sağlayıcımız (Supabase) sunucularına ulaşan isteklerle ilgili teknik erişim kayıtları (IP adresi, zaman damgası, istek boyutu gibi) tutabilir. Bu kayıtlar altyapı düzeyinde oluşur, hizmetin çalışması ve kötüye kullanımın önlenmesi amacına hizmet eder ve bizim tarafımızdan tarif içeriğiyle ilişkilendirilmez.</p>
+
+<h3>Google tarafında saklama</h3>
+<p>Verinizi Gemini API’sine ilettiğimiz andan itibaren, o içeriğin saklanması ve işlenmesi <strong>Google’ın kendi koşullarına ve gizlilik politikasına tabidir</strong>; bu süreç bizim kontrolümüzde değildir. Google’ın API verilerini nasıl işlediğine dair güncel bilgi için <a href="https://policies.google.com/privacy?hl=tr">Google Gizlilik Politikası</a>’na bakabilirsiniz. Şu anda kullanılan ücretsiz API katmanının içerik saklama ve inceleme açısından ne anlama geldiği <a href="#paylasim">8. bölümde</a> ayrıca açıklanmıştır.</p>
+
+<h2>4. Cihazınızda saklanan veriler</h2>
+<hr class="rule">
+<p>Kaydettiğiniz tarifler ve tercihleriniz <strong>yalnızca telefonunuzun kendi belleğinde</strong> tutulur. Bu verilerin bize gönderilen veya bizde yedeklenen bir kopyası yoktur; farklı bir cihaza kurulduğunda uygulama boş başlar.</p>
+
+<div class="table-scroll">
+<table>
+  <thead>
+    <tr><th>Veri</th><th>Ne içerir</th><th>Nerede durur</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Kayıtlı tarifler</td>
+      <td>Tarif başlığı, malzemeler, adımlar, kaydetme tarihi, favori durumu, tarifin fotoğraftan mı metinden mi geldiği</td>
+      <td>Cihaz belleği</td>
+    </tr>
+    <tr>
+      <td>Favoriler</td>
+      <td>Hangi kayıtlı tarifi favori işaretlediğiniz</td>
+      <td>Cihaz belleği</td>
+    </tr>
+    <tr>
+      <td>Ayarlar</td>
+      <td>Sesli okuma açık/kapalı tercihi</td>
+      <td>Cihaz belleği</td>
+    </tr>
+    <tr>
+      <td>Aylık kullanım sayacı</td>
+      <td>İçinde bulunduğunuz ay kaç tarif çözümlemesi yaptığınız (ücretsiz kullanım sınırı için)</td>
+      <td>Cihaz belleği</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p><strong>Not:</strong> Yüklediğiniz fotoğrafın kendisi uygulama tarafından cihazda da saklanmaz — yalnızca çözümlemeden çıkan metin tarif olarak kaydedilir.</p>
+
+<h3>Bu verileri nasıl silersiniz</h3>
+<ul>
+  <li><strong>Tek tarifi silmek için:</strong> Tariflerim veya Favoriler ekranında ilgili tarifin silme seçeneğini kullanın. Silinen tarif cihazdan kalıcı olarak kaldırılır.</li>
+  <li><strong>Hepsini birden silmek için:</strong> Telefonunuzun Ayarlar → Uygulamalar → Mühür → Depolama bölümünden verileri temizleyin veya uygulamayı kaldırın. Bu işlem kayıtlı tariflerinizi, favorilerinizi, ayarlarınızı ve kullanım sayacınızı siler.</li>
+</ul>
+<p>Bu veriler bize hiç ulaşmadığı için silme talebinizi bizim yerine getirmemize gerek yoktur; işlem tamamen sizin kontrolünüzdedir.</p>
+
+<h2>5. Abonelik ve ödemeler</h2>
+<hr class="rule">
+<p>Mühür Pro aboneliği <strong>Google Play Faturalandırma</strong> üzerinden satılır; abonelik durumunun yönetimi için <strong>RevenueCat</strong> hizmetini kullanırız.</p>
+<ul>
+  <li><strong>Ödeme bilgilerinize erişimimiz yoktur.</strong> Kredi kartı numarası, banka bilgisi, fatura adresi veya Google hesabınızın bilgileri bize hiçbir zaman iletilmez. Ödeme tamamen Google Play içinde gerçekleşir.</li>
+  <li>RevenueCat, aboneliğinizi tanımak için <strong>kendi ürettiği anonim bir kullanıcı kimliği</strong> kullanır. Uygulama, RevenueCat’e sizi tanımlayan bir kimlik (e-posta, kullanıcı adı vb.) <strong>vermez</strong>; hesap sistemi olmadığı için verecek bir kimlik de yoktur.</li>
+  <li>RevenueCat’e ulaşan bilgi, aboneliğin teknik durumundan ibarettir: hangi ürün satın alındı, ne zaman, aktif mi, yenilenecek mi. Bu bilgi cihaz ve mağaza düzeyindeki tanımlayıcılarla ilişkilendirilir.</li>
+  <li>“Satın alımları geri yükle” işlevi, Google Play hesabınızdaki mevcut aboneliği RevenueCat üzerinden sorgular.</li>
+</ul>
+<p>Bu hizmetlerin veri işleme koşulları için <a href="https://www.revenuecat.com/privacy/">RevenueCat Gizlilik Politikası</a> ve <a href="https://policies.google.com/privacy?hl=tr">Google Gizlilik Politikası</a> geçerlidir. Aboneliğinizi Google Play hesabınızın abonelikler bölümünden dilediğiniz zaman iptal edebilirsiniz.</p>
+
+<h2>6. İzinler ve neden isteniyor</h2>
+<hr class="rule">
+
+<div class="table-scroll">
+<table>
+  <thead>
+    <tr><th>İzin</th><th>Ne zaman istenir</th><th>Ne için kullanılır</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Kamera</strong></td>
+      <td>Yalnızca “Fotoğraf çek” seçeneğine dokunduğunuzda</td>
+      <td>Tarif fotoğrafını anında çekmek için. Kamera arka planda hiçbir zaman kullanılmaz; video veya sürekli görüntü kaydı yapılmaz.</td>
+    </tr>
+    <tr>
+      <td><strong>Fotoğraflar / Galeri</strong></td>
+      <td>Yalnızca “Galeriden seç” seçeneğine dokunduğunuzda</td>
+      <td>Seçtiğiniz tek bir fotoğrafı okumak için. Galeriniz taranmaz, diğer fotoğraflarınıza erişilmez.</td>
+    </tr>
+    <tr>
+      <td><strong>İnternet</strong></td>
+      <td>Tarif çözümlemesi ve abonelik işlemlerinde</td>
+      <td>Yukarıda anlatılan işlemleri gerçekleştirmek için.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>Bu izinlerden herhangi birini reddederseniz uygulama çökmez; yalnızca ilgili işlev kullanılamaz ve size açıklayıcı bir mesaj gösterilir. İzinleri istediğiniz zaman telefonunuzun ayarlarından geri alabilirsiniz.</p>
+
+<div class="note">
+  <p><strong>Mikrofon hakkında.</strong> Mühür <strong>ses kaydı yapmaz</strong> ve mikrofonunuza erişmez. Uygulamada ses yalnızca iki yönde kullanılır: pişirme zamanlayıcısı bittiğinde kısa bir uyarı sesi <em>çalmak</em> ve adımları Türkçe <em>sesli okumak</em> (metin okuma). Kullandığımız ses oynatma kütüphanesi, Android paketine teknik bir mikrofon izni girişi ekleyebilir; uygulama bu izni <strong>hiçbir zaman istemez ve mikrofonu hiçbir zaman açmaz.</strong></p>
+</div>
+
+<h2>7. Analitik, reklam ve izleme</h2>
+<hr class="rule">
+<p>Mühür’de <strong>analitik aracı, çökme raporlama aracı, reklam ağı veya kullanıcı izleme teknolojisi bulunmamaktadır.</strong> Hangi ekranları açtığınız, uygulamayı ne sıklıkla kullandığınız veya nasıl gezindiğiniz bize iletilmez; bu verileri toplayan bir bileşen uygulamada yoktur.</p>
+<p>Kişiselleştirilmiş reklam amacıyla hiçbir veri toplamıyor, kullanmıyor veya satmıyoruz. <strong>Verilerinizi hiçbir koşulda satmıyoruz.</strong></p>
+
+<h2 id="paylasim">8. Kimlerle paylaşıyoruz</h2>
+<hr class="rule">
+<p>Verilerinizi yalnızca hizmetin çalışması için zorunlu olan aşağıdaki taraflarla paylaşırız:</p>
+<ul>
+  <li><strong>Google (Gemini API)</strong> — yüklediğiniz tarif fotoğrafı veya metni, çözümlenmesi için gönderilir. Yurt dışına aktarım içerir.</li>
+  <li><strong>Supabase</strong> — sunucu fonksiyonumuzu barındırır (Frankfurt, AB); istekler bu altyapıdan geçer.</li>
+  <li><strong>Google Play ve RevenueCat</strong> — yalnızca abonelik satın alma ve abonelik durumu doğrulaması için.</li>
+</ul>
+
+<div class="note note--warn">
+  <span class="note-label">Önemli uyarı</span>
+  <p>Şu anda Google Gemini API’nin ücretsiz katmanı kullanılmaktadır. Google’ın kendi politikası uyarınca, ücretsiz katmanda gönderilen içerik Google tarafından hizmetlerini geliştirmek amacıyla kullanılabilir ve insan gözden geçiricilerce incelenebilir. Bu nedenle kişisel veya hassas bilgi içeren görseller yüklememenizi öneririz. Ücretli katmana geçildiğinde bu madde güncellenecektir.</p>
+</div>
+
+<p>Bunların dışında veri satışı, veri kiralama, pazarlama amaçlı paylaşım veya veri simsarlarına aktarım yapmıyoruz. Yasal olarak zorunlu kılınan hâller (yetkili mahkeme veya idari makam kararı) saklıdır.</p>
+
+<h2>9. Çocuklar</h2>
+<hr class="rule">
+<p>Mühür <strong>13 yaşın altındaki çocuklara yönelik değildir</strong> ve bilerek 13 yaş altı çocuklardan veri toplamaz. Uygulamada hesap oluşturma bulunmadığı için yaş bilgisi de toplanmaz.</p>
+<p>Çocuğunuzun uygulamaya bir fotoğraf yüklediğini düşünüyorsanız, uygulamanın verileri sunucuda saklamadığını hatırlatırız; cihazdaki kayıtları yukarıdaki <em>“Bu verileri nasıl silersiniz”</em> adımlarıyla kaldırabilir, ayrıca aşağıdaki adresten bize ulaşabilirsiniz. Mutfakta ocak, bıçak ve sıcak yüzey kullanımı söz konusu olduğundan, uygulamanın çocuklar tarafından yetişkin gözetimi olmadan kullanılmamasını öneririz.</p>
+
+<h2>10. KVKK kapsamındaki haklarınız</h2>
+<hr class="rule">
+<p>6698 sayılı Kişisel Verilerin Korunması Kanunu’nun <strong>11. maddesi</strong> uyarınca, veri sorumlusuna başvurarak şu haklara sahipsiniz:</p>
+<ul>
+  <li>Kişisel verinizin işlenip işlenmediğini öğrenme;</li>
+  <li>İşlenmişse buna ilişkin bilgi talep etme;</li>
+  <li>İşlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme;</li>
+  <li>Yurt içinde veya yurt dışında verinin aktarıldığı üçüncü kişileri bilme;</li>
+  <li>Eksik veya yanlış işlenmişse düzeltilmesini isteme;</li>
+  <li>Kanundaki şartlar çerçevesinde silinmesini veya yok edilmesini isteme;</li>
+  <li>Düzeltme, silme veya yok etme işlemlerinin verinin aktarıldığı üçüncü kişilere bildirilmesini isteme;</li>
+  <li>Münhasıran otomatik sistemlerle analiz edilmesi sonucu aleyhinize bir sonuç ortaya çıkmasına itiraz etme;</li>
+  <li>Kanuna aykırı işleme nedeniyle zarara uğramanız hâlinde zararın giderilmesini talep etme.</li>
+</ul>
+
+<h3>Başvuru yolu</h3>
+<p>Bu haklarınızı kullanmak için taleplerinizi <a href="mailto:karuef@gmail.com">karuef@gmail.com</a> adresine iletebilirsiniz. Başvurunuzu, talebinizi anlaşılır biçimde belirterek gönderin; <strong>en geç otuz gün içinde</strong> ücretsiz olarak yanıtlanır.</p>
+<p><strong>Önemli bir sınır:</strong> Hesap sistemimiz olmadığı ve gönderdiğiniz içeriği saklamadığımız için, bir talebi <em>size ait</em> bir kayıtla eşleştirmemiz teknik olarak mümkün değildir — elimizde eşleştirebileceğimiz bir kayıt bulunmamaktadır. Bu nedenle erişim, düzeltme ve silme talepleri pratikte cihazınızdaki verilerle ilgilidir ve bunları doğrudan kendiniz silebilirsiniz. Başvurunuza vereceğimiz yanıtta durumu açıkça belirtiriz.</p>
+<p>Başvurunuzun sonucundan memnun kalmazsanız <strong>Kişisel Verileri Koruma Kurulu</strong>’na şikâyette bulunma hakkınız saklıdır.</p>
+
+<h2>11. Güvenlik</h2>
+<hr class="rule">
+<p>Cihazınız ile sunucularımız arasındaki ve sunucularımız ile Google arasındaki tüm iletişim <strong>HTTPS ile şifrelenir.</strong> Servis anahtarlarımız sunucu tarafında saklanır, uygulamanın içine gömülmez ve yanıtlara veya günlüklere yazılmaz.</p>
+<p>Hiçbir yöntem mutlak güvenlik sağlamasa da, sakladığımız veri miktarını en aza indirmek uyguladığımız temel korumadır: tutmadığımız veri sızdırılamaz.</p>
+
+<h2>12. Bu politikadaki değişiklikler</h2>
+<hr class="rule">
+<p>Bu politikayı uygulamanın işlevleri değiştikçe güncelleyebiliriz. Güncellenen metin bu sayfada yayımlanır ve en üstteki <em>“Son güncelleme”</em> tarihi değiştirilir. Veri işleme biçiminde önemli bir değişiklik olması hâlinde uygulama içinde de bilgilendirme yaparız.</p>
+
+<h2>13. İletişim</h2>
+<hr class="rule">
+<div class="card">
+  <p>Gizlilikle ilgili her türlü soru, talep ve KVKK başvurusu için:</p>
+  <p><strong><a href="mailto:karuef@gmail.com">karuef@gmail.com</a></strong></p>
+  <p style="color: var(--ink-soft); font-size: 15px; margin-bottom: 0;">Uygulama: Mühür (<code>com.muhur.app</code>) · Google Play</p>
+</div>
+
+<footer>
+  <p>Mühür — Gizlilik Politikası</p>
+  <p>Son güncelleme: 24 Ağustos 2026</p>
+</footer>
+
+</div>
+</body>
+</html>
