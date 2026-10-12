@@ -255,7 +255,7 @@
 <header>
   <p class="eyebrow">Mühür</p>
   <h1>Gizlilik Politikası</h1>
-  <p class="updated">Son güncelleme: 11 Ekim 2026</p>
+  <p class="updated">Son güncelleme: 12 Ekim 2026</p>
 </header>
 
 <div class="card card--summary">
@@ -301,11 +301,12 @@
   <li>günlük (log) kayıtlarına <strong>yazmaz</strong>.</li>
 </ul>
 <p>İçerik yalnızca isteğin işlendiği süre boyunca bellekte bulunur ve yanıt döndükten sonra kaybolur.</p>
-<p>Bir hata oluştuğunda teknik günlüğe yazılan bilgi, yalnızca hatanın türü ve AI servisinden dönen hata yanıtının kısa bir bölümüdür; <strong>gönderdiğiniz fotoğraf veya tarif metni bu kayıtlara girmez.</strong></p>
+<p>Teknik günlüğe yalnızca isteğin türü (fotoğraf/metin), sonucu, süresi, yanıt boyutu ve kullanılan işlem birimi (token) sayıları gibi sayısal bilgiler yazılır; bir hata oluştuğunda buna yalnızca hatanın türü ve AI servisinin bildirdiği kota adı eklenir. <strong>Gönderdiğiniz fotoğraf veya tarif metni bu kayıtlara girmez.</strong></p>
 <p>Ayrıca, herhangi bir internet hizmetinde olduğu gibi, altyapı sağlayıcımız (Supabase) sunucularına ulaşan isteklerle ilgili teknik erişim kayıtları (IP adresi, zaman damgası, istek boyutu gibi) tutabilir. Bu kayıtlar altyapı düzeyinde oluşur, hizmetin çalışması ve kötüye kullanımın önlenmesi amacına hizmet eder ve bizim tarafımızdan tarif içeriğiyle ilişkilendirilmez.</p>
+<p><strong>Günlük kullanım sınırı.</strong> Hizmetin kötüye kullanılmasını ve aşırı yüklenmesini önlemek için sunucumuz, gelen çözümleme isteklerinin günlük sayısını tutar. Bunun için uygulamanın cihazınızda rastgele ürettiği <strong>kurulum kimliği</strong> (bkz. 4. bölüm) ve isteğin geldiği <strong>IP adresi</strong>, geri döndürülemez biçimde özetlenerek (gizli bir değerle tuzlanmış SHA-256 hash) yalnızca o günün sayacında anahtar olarak kullanılır. Kurulum kimliğinin ve IP adresinin ham hâli saklanmaz, günlüklere yazılmaz; özet her gün değiştiği için kayıtlar günler arasında ilişkilendirilemez. Sayaç kayıtları yalnızca istek sayısını içerir ve <strong>en geç 2 gün içinde otomatik olarak silinir.</strong> Bu işleme, hizmetin güvenliği ve sürekliliğine yönelik meşru menfaatimize dayanır (KVKK m.5/2-f).</p>
 
 <h3>Google tarafında saklama</h3>
-<p>Verinizi Gemini API’sine ilettiğimiz andan itibaren, o içeriğin saklanması ve işlenmesi <strong>Google’ın kendi koşullarına ve gizlilik politikasına tabidir</strong>; bu süreç bizim kontrolümüzde değildir. Google’ın API verilerini nasıl işlediğine dair güncel bilgi için <a href="https://policies.google.com/privacy?hl=tr">Google Gizlilik Politikası</a>’na bakabilirsiniz. Şu anda kullanılan ücretsiz API katmanının içerik saklama ve inceleme açısından ne anlama geldiği <a href="#paylasim">8. bölümde</a> ayrıca açıklanmıştır.</p>
+<p>Verinizi Gemini API’sine ilettiğimiz andan itibaren, o içeriğin saklanması ve işlenmesi <strong>Google’ın kendi koşullarına ve gizlilik politikasına tabidir</strong>; bu süreç bizim kontrolümüzde değildir. Google’ın API verilerini nasıl işlediğine dair güncel bilgi için <a href="https://policies.google.com/privacy?hl=tr">Google Gizlilik Politikası</a>’na bakabilirsiniz. Kullanılan ücretli API katmanının içerik saklama ve inceleme açısından ne anlama geldiği <a href="#paylasim">8. bölümde</a> ayrıca açıklanmıştır.</p>
 
 <h2>4. Cihazınızda saklanan veriler</h2>
 <hr class="rule">
@@ -337,6 +338,11 @@
       <td>İçinde bulunduğunuz ay kaç tarif çözümlemesi yaptığınız (ücretsiz kullanım sınırı için)</td>
       <td>Cihaz belleği</td>
     </tr>
+    <tr>
+      <td>Kurulum kimliği</td>
+      <td>Uygulamanın ilk kullanımda ürettiği, sizi tanımlamayan rastgele bir değer. Yalnızca günlük kullanım sınırı için çözümleme isteğiyle birlikte sunucuya gönderilir; sunucu bunu özetleyerek kullanır, ham hâlini saklamaz (bkz. 3. bölüm). Uygulama verisini silmek ya da uygulamayı kaldırmak kimliği de siler; yeniden kurulumda yenisi üretilir.</td>
+      <td>Cihaz belleği</td>
+    </tr>
   </tbody>
 </table>
 </div>
@@ -346,7 +352,7 @@
 <h3>Bu verileri nasıl silersiniz</h3>
 <ul>
   <li><strong>Tek tarifi silmek için:</strong> Tariflerim veya Favoriler ekranında ilgili tarifin silme seçeneğini kullanın. Silinen tarif cihazdan kalıcı olarak kaldırılır.</li>
-  <li><strong>Hepsini birden silmek için:</strong> Telefonunuzun Ayarlar → Uygulamalar → Mühür → Depolama bölümünden verileri temizleyin veya uygulamayı kaldırın. Bu işlem kayıtlı tariflerinizi, favorilerinizi, ayarlarınızı ve kullanım sayacınızı siler.</li>
+  <li><strong>Hepsini birden silmek için:</strong> Telefonunuzun Ayarlar → Uygulamalar → Mühür → Depolama bölümünden verileri temizleyin veya uygulamayı kaldırın. Bu işlem kayıtlı tariflerinizi, favorilerinizi, ayarlarınızı, kullanım sayacınızı ve kurulum kimliğinizi siler.</li>
 </ul>
 <p>Bu veriler bize hiç ulaşmadığı için silme talebinizi bizim yerine getirmemize gerek yoktur; işlem tamamen sizin kontrolünüzdedir.</p>
 
@@ -407,7 +413,7 @@
 
 <div class="note note--warn">
   <span class="note-label">Önemli uyarı</span>
-  <p>Şu anda Google Gemini API’nin ücretsiz katmanı kullanılmaktadır. Google’ın kendi politikası uyarınca, ücretsiz katmanda gönderilen içerik Google tarafından hizmetlerini geliştirmek amacıyla kullanılabilir ve insan gözden geçiricilerce incelenebilir. Bu nedenle kişisel veya hassas bilgi içeren görseller yüklememenizi öneririz. Ücretli katmana geçildiğinde bu madde güncellenecektir.</p>
+  <p>Google Gemini API’nin <strong>ücretli katmanı</strong> kullanılmaktadır. Google’ın Gemini API hizmet şartları uyarınca, ücretli katmanda gönderilen içerik ve üretilen yanıtlar <strong>Google ürünlerini geliştirmek için kullanılmaz.</strong> Google bu içeriği yalnızca kötüye kullanımı tespit etmek ve yasal yükümlülüklerini yerine getirmek amacıyla sınırlı bir süre saklayabilir. Yine de kişisel veya hassas bilgi içeren görseller yüklememenizi öneririz.</p>
 </div>
 
 <p>Bunların dışında veri satışı, veri kiralama, pazarlama amaçlı paylaşım veya veri simsarlarına aktarım yapmıyoruz. Yasal olarak zorunlu kılınan hâller (yetkili mahkeme veya idari makam kararı) saklıdır.</p>
@@ -457,7 +463,7 @@
 
 <footer>
   <p>Mühür — Gizlilik Politikası</p>
-  <p>Son güncelleme: 11 Ekim 2026</p>
+  <p>Son güncelleme: 12 Ekim 2026</p>
 </footer>
 
 </div>
