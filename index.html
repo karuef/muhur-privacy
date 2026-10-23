@@ -231,6 +231,14 @@
 
   tr:last-child td { border-bottom: 0; }
 
+  .placeholder {
+    background: var(--terra-soft);
+    color: var(--ink);
+    padding: 1px 6px;
+    border-radius: 5px;
+    font-weight: 600;
+  }
+
   footer {
     margin-top: 56px;
     padding-top: 24px;
@@ -255,62 +263,91 @@
 <header>
   <p class="eyebrow">Mühür</p>
   <h1>Gizlilik Politikası</h1>
-  <p class="updated">Son güncelleme: 17 Ekim 2026</p>
+  <p class="updated">Son güncelleme: <span class="placeholder">23 Ekim 2026</span></p>
 </header>
 
 <div class="card card--summary">
   <ul>
-    <li><strong>Hesap yok, giriş yok.</strong> Adınızı, e-postanızı, telefonunuzu istemiyoruz.</li>
-    <li><strong>Tarifleriniz telefonunuzda kalır.</strong> Bizim sunucumuzda tarif veritabanı yok.</li>
-    <li><strong>Yüklediğiniz fotoğraf ve metin, çözümlenmek üzere Google’a gönderilir.</strong> Bu bir paylaşımdır ve aşağıda açıkça anlatılmıştır.</li>
-    <li><strong>Analitik ve çökme takibi yok.</strong> Uygulamada hiçbir izleme aracı bulunmuyor.</li>
+    <li><strong>İlk analiziniz hesapsız.</strong> Devam etmek için Google ile giriş yaparsınız; girişte e-posta adresiniz, adınız ve Google kullanıcı kimliğiniz hesabınız için saklanır.</li>
+    <li><strong>Tarifleriniz telefonunuzda kalır.</strong> Sunucumuzda tarif veritabanı yok.</li>
+    <li><strong>Yüklediğiniz fotoğraf ve metin, çözümlenmek üzere Google’a (Gemini API) aktarılır.</strong> Google bunu hizmet sağlayıcımız olarak, bizim adımıza işler; içerik Google ürünlerinin geliştirilmesinde (model eğitiminde) kullanılmaz ve bizim tarafımızda saklanmaz.</li>
+    <li><strong>Analitik ve çökme takibi yok.</strong> Uygulamada hiçbir izleme veya reklam aracı bulunmuyor.</li>
   </ul>
 </div>
 
-<p>Bu politika, <strong>Mühür</strong> mobil uygulamasının kişisel verilerinizi nasıl işlediğini açıklar. Uygulamayı kullanarak burada anlatılan işleme faaliyetlerini kabul etmiş olursunuz.</p>
+<p>Bu politika, <strong>Mühür</strong> mobil uygulamasının kişisel verilerinizi nasıl işlediğini açıklar. 6698 sayılı Kanun kapsamındaki aydınlatma metnine <a href="aydinlatma.html">buradan</a>, kullanım koşullarına <a href="kosullar.html">buradan</a> ulaşabilirsiniz.</p>
 
-<h2>1. Hesap ve kimlik bilgileri</h2>
+<h2>1. Hesap ve giriş</h2>
 <hr class="rule">
-<p>Mühür’de <strong>hesap oluşturma, üye olma veya oturum açma yoktur.</strong> Uygulama sizden ad, soyad, e-posta adresi, telefon numarası, doğum tarihi, konum veya benzeri hiçbir kimlik bilgisi istemez; uygulama içinde böyle bir alan da bulunmaz.</p>
-<p>Sizi kişi olarak tanımlayan bir kullanıcı kaydımız olmadığı için, sunucu tarafında sizi diğer kullanıcılardan ayırt eden kalıcı bir profilimiz de yoktur.</p>
+<p>İlk tarif analizinizi <strong>hesap açmadan</strong> yapabilirsiniz. Sonraki analizler için <strong>Google ile giriş</strong> yapmanız gerekir. Mühür sizden ayrıca şifre, telefon numarası, doğum tarihi veya adres istemez; giriş, telefonunuzdaki Google hesabı seçicisiyle yapılır.</p>
+<p>Google ile giriş yaptığınızda Google’ın bize ilettiği şu bilgiler, kimlik doğrulama altyapımızda (<strong>Supabase</strong>, sunucu bölgesi <strong>Frankfurt, Almanya — Avrupa Birliği</strong>) saklanır:</p>
+<ul>
+  <li><strong>E-posta adresiniz</strong> ve e-postanın Google tarafından doğrulanmış olduğu bilgisi;</li>
+  <li>Google hesabınızdaki <strong>adınız</strong>;</li>
+  <li><strong>Google kullanıcı kimliğiniz</strong> (Google’ın hesabınıza verdiği sabit numara);</li>
+  <li>Google’ın giriş bilgisiyle birlikte gönderdiği <strong>profil fotoğrafı bağlantısı</strong> (uygulama bu fotoğrafı göstermez ve kullanmaz);</li>
+  <li>hesabın oluşturulma ve son giriş zamanı.</li>
+</ul>
+<p>Giriş altyapısı ayrıca, oturumunuzun güvenliği için her oturuma ait bir kayıt tutar: <strong>IP adresi, uygulama/cihaz bilgisi</strong> (tarayıcı kimliği satırı) ve oturumun zamanları.</p>
+<p><strong>Amaç:</strong> hesabınızı oluşturmak ve tanımak, aylık analiz haklarınızı hesabınıza bağlamak ve varsa Mühür Pro aboneliğinizi hesabınızla eşleştirmek. E-posta adresinizi pazarlama veya bülten için kullanmıyoruz.</p>
+<p><strong>Saklama:</strong> hesabınızı silene kadar (ayrıntılı süreler <a href="#sureler">6. bölümde</a>).</p>
 
-<h2>2. Yüklediğiniz fotoğraf ve metin nasıl işlenir</h2>
+<h2>2. Analiz hakları ve kötüye kullanımın önlenmesi</h2>
+<hr class="rule">
+<ul>
+  <li><strong>Ücretsiz kullanım:</strong> ayda 5 tarif analizi.</li>
+  <li><strong>Mühür Pro:</strong> ayda 300 tarif analizi, günde en fazla 30.</li>
+  <li>Ay ve gün Türkiye saatine göre hesaplanır.</li>
+</ul>
+<p>Bu sayaçlar <strong>sunucumuzda, hesabınıza bağlı olarak</strong> tutulur; uygulamayı başka bir telefona kurduğunuzda haklarınız aynı kalır. Sayaç yalnızca analiz sayısını içerir; analiz edilen içeriği içermez.</p>
+
+<h3>Hesapsız ilk analiz</h3>
+<p>Hesapsız yapılan ilk analiz, uygulamanın cihazınızda rastgele ürettiği <strong>kurulum kimliğinin özetiyle</strong> sayılır. Özet, gizli bir anahtarla geri döndürülemez biçimde hesaplanır (HMAC-SHA256); kurulum kimliğinin ham hâli sunucuda saklanmaz. Giriş yaptığınızda o ay yaptığınız hesapsız analiz aylık hakkınızdan sayılır ve bu kurulum hesabınıza bağlanır. Uygulamanın eski sürümlerinin telefonda tuttuğu aylık sayaç değeri de ilk girişte bir kez sunucuya iletilir ve en fazla ücretsiz sınır kadar hesaba yansıtılır.</p>
+
+<h3>Günlük kullanım sınırı</h3>
+<p>Hizmetin kötüye kullanılmasını ve aşırı yüklenmesini önlemek için sunucumuz, gelen çözümleme isteklerinin günlük sayısını da tutar. Bunun için kurulum kimliği ve isteğin geldiği <strong>IP adresi</strong>, gizli bir değerle tuzlanmış SHA-256 özetine dönüştürülerek yalnızca o günün sayacında anahtar olarak kullanılır. Ham hâlleri saklanmaz, günlüklere yazılmaz; özet her gün değiştiği için kayıtlar günler arasında ilişkilendirilemez. Bu sayaç kayıtları <strong>en geç 2 gün içinde otomatik olarak silinir.</strong></p>
+
+<h3>Google Play Integrity</h3>
+<p>Android’de her analiz isteğinden önce uygulama, Google Play hizmetlerinden bir <strong>bütünlük belirteci</strong> ister ve isteğe ekler. Sunucumuz bu belirteci Google’ın Play Integrity hizmetine doğrulatır. Google’dan dönen sonuç; isteğin Google Play’den tanınan Mühür uygulamasından gelip gelmediğini, cihazın temel bütünlük denetimini geçip geçmediğini ve belirtecin bu isteğe ve bu ana ait olup olmadığını gösterir.</p>
+<p>Amaç, sahte veya otomatik isteklerle analiz haklarının ve hizmetin kötüye kullanılmasını önlemektir. Sonucun yalnızca özeti (ör. “geçerli”, “geçersiz”, “alınamadı” ve kısa bir neden kodu) teknik günlüklere yazılır; veritabanına kaydedilmez. Belirteç cihazınızda Google Play hizmetleri tarafından üretilir; Google’ın bu sırada işlediği cihaz bilgileri <a href="https://policies.google.com/privacy?hl=tr">Google Gizlilik Politikası</a>’na tabidir. Belirteç alınamazsa analiz isteğiniz yine gönderilir.</p>
+
+<h2>3. Yüklediğiniz fotoğraf ve metin nasıl işlenir</h2>
 <hr class="rule">
 <p>Mühür’ün temel işlevi, bir tarif fotoğrafını veya yapıştırdığınız tarif metnini yapılandırılmış adımlara dönüştürmektir. Bu işlem <strong>cihazınızda değil, çevrimiçi olarak</strong> yapılır ve zorunlu olarak verinin cihazınızdan çıkmasını gerektirir.</p>
 
 <h3>İşlem akışı</h3>
 <ol class="flow">
   <li>Fotoğrafı çekersiniz veya galeriden seçersiniz. Fotoğraf, gönderilmeden önce <strong>cihazınızda küçültülür</strong> (en fazla 1024 piksel genişlik, JPEG olarak sıkıştırılır). Metin yapıştırdıysanız metin olduğu gibi alınır.</li>
-  <li>Küçültülmüş fotoğraf veya metin, <strong>Supabase</strong> altyapısında çalışan sunucu fonksiyonumuza (<code>parse-recipe</code>) gönderilir. Bu fonksiyonun barındırıldığı proje bölgesi <strong>Frankfurt, Almanya (AWS eu-central-1) — Avrupa Birliği</strong> içindedir.</li>
-  <li>Fonksiyonumuz, aynı içeriği çözümlenmek üzere <strong>Google’ın Gemini API’sine</strong> (<code>generativelanguage.googleapis.com</code>) iletir. <strong>Bu, verinizin üçüncü bir tarafla — Google ile — paylaşılmasıdır.</strong></li>
+  <li>Küçültülmüş fotoğraf veya metin, <strong>Supabase</strong> altyapısında çalışan sunucu fonksiyonumuza (<code>parse-recipe</code>) gönderilir (Frankfurt, Almanya — AB). İstekle birlikte kurulum kimliği, giriş yaptıysanız oturum anahtarınız ve varsa bütünlük belirteci de iletilir (bkz. 2. bölüm).</li>
+  <li>Fonksiyonumuz, aynı içeriği çözümlenmek üzere <strong>Google’ın Gemini API’sine</strong> (<code>generativelanguage.googleapis.com</code>) iletir. <strong>Google bu içeriği hizmet sağlayıcımız olarak, bizim adımıza ve talimatımız doğrultusunda işler;</strong> içerik ve yanıtlar Google ürünlerinin geliştirilmesinde (model eğitiminde) kullanılmaz (ayrıntı <a href="#paylasim">9. bölümde</a>).</li>
   <li>Google, içerikten çıkardığı tarif verisini (başlık, malzemeler, adımlar) bize döndürür; biz de bunu doğrulayıp uygulamaya, yani telefonunuza geri veririz.</li>
 </ol>
 
 <div class="note">
-  <p><strong>Yurt dışına veri aktarımı.</strong> Google Gemini API’si Google LLC tarafından işletilir ve istekler <strong>Türkiye ve Avrupa Birliği dışındaki sunuculara aktarılabilir.</strong> Bir tarif fotoğrafı veya metni yüklediğinizde bu aktarım gerçekleşir; aktarım, talep ettiğiniz çözümleme hizmetinin verilebilmesi için zorunludur. Bu aktarımı istemiyorsanız fotoğraf veya metin yüklemeyin — uygulamanın kaydedilmiş tariflerinizi görüntüleme ve pişirme modu işlevleri çevrimdışı çalışmaya devam eder.</p>
+  <p><strong>Yurt dışına veri aktarımı.</strong> Google Gemini API’si Google LLC tarafından işletilir ve istekler <strong>Türkiye ve Avrupa Birliği dışındaki sunuculara aktarılabilir.</strong> Bir tarif fotoğrafı veya metni yüklediğinizde bu aktarım gerçekleşir; aktarım olmadan çözümleme yapılamaz. Bu aktarımı istemiyorsanız fotoğraf veya metin yüklemeyin — kaydedilmiş tariflerinizi görüntüleme ve pişirme modu çevrimdışı çalışmaya devam eder. Tüm yurt dışı aktarımlar <a href="#aktarim">10. bölümde</a> listelenmiştir.</p>
 </div>
 
-<p>Gönderdiğiniz fotoğrafta tarifin yanı sıra istemeden başka şeyler de yer alabilir (mutfağınızın bir köşesi, el yazınız, arka planda görünen kişiler gibi). <strong>Yalnızca tarifin göründüğü fotoğrafları yüklemenizi öneririz.</strong></p>
+<p>Gönderdiğiniz fotoğrafta tarifin yanı sıra istemeden başka şeyler de yer alabilir (mutfağınızın bir köşesi, el yazınız, arka planda görünen kişiler gibi). <strong>Fotoğrafta kişi ya da kişisel bilgi olmamasına dikkat edin;</strong> yalnızca tarifin göründüğü fotoğrafları yüklemenizi öneririz.</p>
 
-<h2>3. Gönderdiğiniz içerik saklanıyor mu?</h2>
+<h2>4. Gönderdiğiniz içerik saklanıyor mu?</h2>
 <hr class="rule">
 <p><strong>Bizim tarafımızda hayır.</strong> Sunucu fonksiyonumuz, aldığı fotoğrafı veya metni:</p>
 <ul>
-  <li>hiçbir veritabanına <strong>kaydetmez</strong> — uygulamanın tarif veya kullanıcı içeriği tutan bir veritabanı tablosu yoktur;</li>
+  <li>hiçbir veritabanına <strong>kaydetmez</strong> — sunucumuzda tarif veya kullanıcı içeriği tutan bir tablo yoktur;</li>
   <li>hiçbir dosya deposuna <strong>yüklemez</strong>;</li>
   <li>günlük (log) kayıtlarına <strong>yazmaz</strong>.</li>
 </ul>
 <p>İçerik yalnızca isteğin işlendiği süre boyunca bellekte bulunur ve yanıt döndükten sonra kaybolur.</p>
-<p>Teknik günlüğe yalnızca isteğin türü (fotoğraf/metin), sonucu, süresi, yanıt boyutu ve kullanılan işlem birimi (token) sayıları gibi sayısal bilgiler yazılır; bir hata oluştuğunda buna yalnızca hatanın türü ve AI servisinin bildirdiği kota adı eklenir. <strong>Gönderdiğiniz fotoğraf veya tarif metni bu kayıtlara girmez.</strong></p>
-<p>Ayrıca, herhangi bir internet hizmetinde olduğu gibi, altyapı sağlayıcımız (Supabase) sunucularına ulaşan isteklerle ilgili teknik erişim kayıtları (IP adresi, zaman damgası, istek boyutu gibi) tutabilir. Bu kayıtlar altyapı düzeyinde oluşur, hizmetin çalışması ve kötüye kullanımın önlenmesi amacına hizmet eder ve bizim tarafımızdan tarif içeriğiyle ilişkilendirilmez.</p>
-<p><strong>Günlük kullanım sınırı.</strong> Hizmetin kötüye kullanılmasını ve aşırı yüklenmesini önlemek için sunucumuz, gelen çözümleme isteklerinin günlük sayısını tutar. Bunun için uygulamanın cihazınızda rastgele ürettiği <strong>kurulum kimliği</strong> (bkz. 4. bölüm) ve isteğin geldiği <strong>IP adresi</strong>, geri döndürülemez biçimde özetlenerek (gizli bir değerle tuzlanmış SHA-256 hash) yalnızca o günün sayacında anahtar olarak kullanılır. Kurulum kimliğinin ve IP adresinin ham hâli saklanmaz, günlüklere yazılmaz; özet her gün değiştiği için kayıtlar günler arasında ilişkilendirilemez. Sayaç kayıtları yalnızca istek sayısını içerir ve <strong>en geç 2 gün içinde otomatik olarak silinir.</strong> Bu işleme, hizmetin güvenliği ve sürekliliğine yönelik meşru menfaatimize dayanır (KVKK m.5/2-f).</p>
+<p>Teknik günlüğe yalnızca isteğin türü (fotoğraf/metin), sonucu, süresi, yanıt boyutu, kullanılan işlem birimi (token) sayıları, hesap türü (hesapsız / girişli) ve bütünlük doğrulamasının özeti gibi bilgiler yazılır; bir hata oluştuğunda buna yalnızca hatanın türü eklenir. <strong>Gönderdiğiniz fotoğraf veya tarif metni, e-posta adresiniz, kimlikleriniz ve IP adresiniz bu kayıtlara yazılmaz.</strong></p>
+<p>Ayrıca, herhangi bir internet hizmetinde olduğu gibi, altyapı sağlayıcımız (Supabase) sunucularına ulaşan her istek için otomatik bir <strong>erişim kaydı</strong> tutar: <strong>IP adresi</strong>, IP adresinden çıkarılan <strong>yaklaşık konum</strong> (ülke, bölge, şehir, posta kodu) ve internet sağlayıcısı, <strong>uygulama/cihaz bilgisi</strong> (tarayıcı kimliği satırı), bağlantının teknik parmak izi, istenen adres, zaman damgası, istek ve yanıt boyutu, yanıt durumu. Bu kayıtlarda gönderdiğiniz fotoğraf veya metin, kurulum kimliğiniz ve bütünlük belirteci bulunmaz; oturum anahtarı yalnızca özet hâlinde yer alır. Kayıtlar altyapı düzeyinde oluşur, hizmetin çalışması, hataların incelenmesi ve kötüye kullanımın önlenmesi amacına hizmet eder ve bizim tarafımızdan tarif içeriğiyle ilişkilendirilmez.</p>
 
 <h3>Google tarafında saklama</h3>
-<p>Verinizi Gemini API’sine ilettiğimiz andan itibaren, o içeriğin saklanması ve işlenmesi <strong>Google’ın kendi koşullarına ve gizlilik politikasına tabidir</strong>; bu süreç bizim kontrolümüzde değildir. Google’ın API verilerini nasıl işlediğine dair güncel bilgi için <a href="https://policies.google.com/privacy?hl=tr">Google Gizlilik Politikası</a>’na bakabilirsiniz. Kullanılan ücretli API katmanının içerik saklama ve inceleme açısından ne anlama geldiği <a href="#paylasim">8. bölümde</a> ayrıca açıklanmıştır.</p>
+<p>Verinizi Gemini API’sine ilettiğimiz andan itibaren, o içeriğin saklanması ve işlenmesi <strong>Google’ın kendi koşullarına ve gizlilik politikasına tabidir</strong>; bu süreç bizim kontrolümüzde değildir. Google’ın API verilerini nasıl işlediğine dair güncel bilgi için <a href="https://policies.google.com/privacy?hl=tr">Google Gizlilik Politikası</a>’na bakabilirsiniz. Kullanılan ücretli API katmanının içerik saklama ve inceleme açısından ne anlama geldiği <a href="#paylasim">9. bölümde</a> ayrıca açıklanmıştır.</p>
 
-<h2>4. Cihazınızda saklanan veriler</h2>
+<h2 id="cihaz">5. Cihazınızda saklanan veriler</h2>
 <hr class="rule">
-<p>Kaydettiğiniz tarifler ve tercihleriniz <strong>yalnızca telefonunuzun kendi belleğinde</strong> tutulur. Bu verilerin bize gönderilen veya bizde yedeklenen bir kopyası yoktur; farklı bir cihaza kurulduğunda uygulama boş başlar.</p>
+<p>Kaydettiğiniz tarifler ve tercihleriniz <strong>telefonunuzun kendi belleğinde</strong> tutulur. Tariflerin bize gönderilen veya bizde yedeklenen bir kopyası yoktur; giriş yapmanız tariflerinizi sunucuya taşımaz.</p>
+<p><strong>Android yedeklemesi:</strong> Telefonunuzda Google yedeklemesi açıksa Android, Mühür’ün cihazdaki verilerini (kayıtlı tarifler, tercihler, kurulum kimliği ve oturum bilgisi) Google hesabınızın yedeğine dahil edebilir ve yeni bir telefona geri yükleyebilir. Bu yedek Android ve Google tarafından tutulur; bizim erişimimiz yoktur. Yedekten geri yükleme yapılmadıysa uygulama farklı bir cihazda tarifler olmadan başlar. Yedeklemeyi telefonunuzun ayarlarındaki yedekleme bölümünden yönetebilirsiniz.</p>
 
 <div class="table-scroll">
 <table>
@@ -320,27 +357,27 @@
   <tbody>
     <tr>
       <td>Kayıtlı tarifler</td>
-      <td>Tarif başlığı, malzemeler, adımlar, kaydetme tarihi, favori durumu, tarifin fotoğraftan mı metinden mi geldiği</td>
-      <td>Cihaz belleği</td>
-    </tr>
-    <tr>
-      <td>Favoriler</td>
-      <td>Hangi kayıtlı tarifi favori işaretlediğiniz</td>
+      <td>Tarif başlığı, malzemeler, adımlar, notunuz, kaydetme tarihi, favori durumu, tarifin fotoğraftan mı metinden mi geldiği</td>
       <td>Cihaz belleği</td>
     </tr>
     <tr>
       <td>Ayarlar</td>
-      <td>Sesli okuma açık/kapalı tercihi</td>
+      <td>Sesli okuma açık/kapalı tercihi ve benzeri uygulama tercihleri</td>
       <td>Cihaz belleği</td>
     </tr>
     <tr>
-      <td>Aylık kullanım sayacı</td>
-      <td>İçinde bulunduğunuz ay kaç tarif çözümlemesi yaptığınız (ücretsiz kullanım sınırı için)</td>
+      <td>Oturum bilgisi</td>
+      <td>Giriş yaptıysanız oturum anahtarlarınız ve hesabınıza ait temel bilgiler (e-posta, ad). Çıkış yaptığınızda silinir.</td>
+      <td>Cihaz belleği</td>
+    </tr>
+    <tr>
+      <td>Analiz hakkı bilgisi</td>
+      <td>Sunucudan gelen son hak durumu (bu ay kaç analiz yapıldığı, sınır) ve hesapsız kullanım için yerel aylık sayaç</td>
       <td>Cihaz belleği</td>
     </tr>
     <tr>
       <td>Kurulum kimliği</td>
-      <td>Uygulamanın ilk kullanımda ürettiği, sizi tanımlamayan rastgele bir değer. Yalnızca günlük kullanım sınırı için çözümleme isteğiyle birlikte sunucuya gönderilir; sunucu bunu özetleyerek kullanır, ham hâlini saklamaz (bkz. 3. bölüm). Uygulama verisini silmek ya da uygulamayı kaldırmak kimliği de siler; yeniden kurulumda yenisi üretilir.</td>
+      <td>Uygulamanın ilk kullanımda ürettiği, sizi tanımlamayan rastgele bir değer. Analiz isteğiyle birlikte sunucuya gönderilir; sunucu bunu yalnızca özet hâlinde kullanır (bkz. 2. bölüm). Uygulama verisini silmek ya da uygulamayı kaldırmak kimliği de siler; yeniden kurulumda yenisi üretilir.</td>
       <td>Cihaz belleği</td>
     </tr>
   </tbody>
@@ -349,25 +386,145 @@
 
 <p><strong>Not:</strong> Yüklediğiniz fotoğrafın kendisi uygulama tarafından cihazda da saklanmaz — yalnızca çözümlemeden çıkan metin tarif olarak kaydedilir.</p>
 
-<h3>Bu verileri nasıl silersiniz</h3>
+<h3>Cihazdaki verileri nasıl silersiniz</h3>
 <ul>
   <li><strong>Tek tarifi silmek için:</strong> Tariflerim veya Favoriler ekranında ilgili tarifin silme seçeneğini kullanın. Silinen tarif cihazdan kalıcı olarak kaldırılır.</li>
-  <li><strong>Hepsini birden silmek için:</strong> Telefonunuzun Ayarlar → Uygulamalar → Mühür → Depolama bölümünden verileri temizleyin veya uygulamayı kaldırın. Bu işlem kayıtlı tariflerinizi, favorilerinizi, ayarlarınızı, kullanım sayacınızı ve kurulum kimliğinizi siler.</li>
+  <li><strong>Hepsini birden silmek için:</strong> Telefonunuzun Ayarlar → Uygulamalar → Mühür → Depolama bölümünden verileri temizleyin veya uygulamayı kaldırın. Bu işlem cihazdaki tüm Mühür verilerini siler ve oturumunuzu kapatır; <strong>sunucudaki hesabınızı silmez</strong> (hesap silme: <a href="#silme">8. bölüm</a>).</li>
 </ul>
-<p>Bu veriler bize hiç ulaşmadığı için silme talebinizi bizim yerine getirmemize gerek yoktur; işlem tamamen sizin kontrolünüzdedir.</p>
 
-<h2>5. Abonelik ve ödemeler</h2>
+<h2 id="sureler">6. Sunucuda saklanan kayıtlar ve süreleri</h2>
+<hr class="rule">
+<p>Sunucu tarafındaki kayıtlarımız Supabase üzerinde (Frankfurt, Almanya — AB) tutulur. Bu tablolara uygulamadan doğrudan erişilemez; yalnızca sunucu fonksiyonlarımız erişir.</p>
+
+<div class="table-scroll">
+<table>
+  <thead>
+    <tr><th>Kayıt</th><th>Ne içerir</th><th>Ne kadar saklanır</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Hesap</td>
+      <td>E-posta, ad, Google kullanıcı kimliği, profil fotoğrafı bağlantısı, e-posta doğrulama bilgisi, oluşturma ve son giriş zamanı</td>
+      <td>Hesabınızı silene kadar</td>
+    </tr>
+    <tr>
+      <td>Oturum kayıtları</td>
+      <td>IP adresi, uygulama/cihaz bilgisi, oturum zamanları</td>
+      <td>Çıkış yaptığınızda o oturumun kaydı silinir; hesabınızı sildiğinizde tümü silinir</td>
+    </tr>
+    <tr>
+      <td>Aylık kullanım</td>
+      <td>Hesabınızın her ay yaptığı analiz sayısı; Pro için o günün analiz sayısı</td>
+      <td>Hesabınızı silene kadar; aylık satırlar en fazla <strong>3 ay</strong>: 3 aydan eski aylara ait satırlar, herhangi bir kullanıcının yaptığı bir sonraki analizde silinir</td>
+    </tr>
+    <tr>
+      <td>Pro durumu</td>
+      <td>Mağaza, ürün, aboneliğin aktif olup olmadığı, bitiş tarihi, RevenueCat kullanıcı kimliği</td>
+      <td>Hesabınızı silene kadar (abonelik değiştikçe güncellenir)</td>
+    </tr>
+    <tr>
+      <td>Hesapsız ilk analiz</td>
+      <td>Kurulum kimliğinin özeti, analiz sayısı, son kullanımın ayı, bağlandığı hesap</td>
+      <td>Son güncellemeden 400 gün sonra silinir (silme, bu süreden sonraki ilk hesapsız analiz isteğinde yapılır). Hesabınızı sildiğinizde hesapla bağı kaldırılır</td>
+    </tr>
+    <tr>
+      <td>Günlük kullanım sınırı sayaçları</td>
+      <td>Kurulum kimliğinin ve IP adresinin o güne özel özeti, istek sayısı</td>
+      <td>En geç 2 gün</td>
+    </tr>
+    <tr>
+      <td>Silinen hesap kaydı</td>
+      <td>Google kullanıcı kimliğinin özeti, hesabın silindiği ay yaptığı analiz sayısı</td>
+      <td>Silindiği ayın sonuna kadar (Türkiye saati). Süresi dolan kayıt, sonraki ilk giriş veya hesap silme işleminde silinir</td>
+    </tr>
+    <tr>
+      <td>Teknik günlükler</td>
+      <td>4. bölümde sayılan sayısal bilgiler ve özetler; içerik ve kimlik yok</td>
+      <td>7 gün (Supabase’in kullandığımız plan için belirttiği kayıt saklama süresi; silme sağlayıcı tarafından otomatik yapılır)</td>
+    </tr>
+    <tr>
+      <td>Altyapı erişim kayıtları</td>
+      <td>IP adresi, IP’den çıkarılan yaklaşık konum ve internet sağlayıcısı, uygulama/cihaz bilgisi, zaman, istek bilgileri (4. bölüm); giriş işlemlerinin kayıtları dahil</td>
+      <td>7 gün (Supabase’in kullandığımız plan için belirttiği kayıt saklama süresi; silme sağlayıcı tarafından otomatik yapılır)</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2>7. Abonelik ve ödemeler</h2>
 <hr class="rule">
 <p>Mühür Pro aboneliği <strong>Google Play Faturalandırma</strong> üzerinden satılır; abonelik durumunun yönetimi için <strong>RevenueCat</strong> hizmetini kullanırız.</p>
 <ul>
-  <li><strong>Ödeme bilgilerinize erişimimiz yoktur.</strong> Kredi kartı numarası, banka bilgisi, fatura adresi veya Google hesabınızın bilgileri bize hiçbir zaman iletilmez. Ödeme tamamen Google Play içinde gerçekleşir.</li>
-  <li>RevenueCat, aboneliğinizi tanımak için <strong>kendi ürettiği anonim bir kullanıcı kimliği</strong> kullanır. Uygulama, RevenueCat’e sizi tanımlayan bir kimlik (e-posta, kullanıcı adı vb.) <strong>vermez</strong>; hesap sistemi olmadığı için verecek bir kimlik de yoktur.</li>
-  <li>RevenueCat’e ulaşan bilgi, aboneliğin teknik durumundan ibarettir: hangi ürün satın alındı, ne zaman, aktif mi, yenilenecek mi. Bu bilgi cihaz ve mağaza düzeyindeki tanımlayıcılarla ilişkilendirilir.</li>
+  <li><strong>Ödeme bilgilerinize erişimimiz yoktur.</strong> Kredi kartı numarası, banka bilgisi veya fatura adresi bize hiçbir zaman iletilmez. Ödeme tamamen Google Play içinde gerçekleşir.</li>
+  <li>Mühür Pro <strong>yalnızca Google ile giriş yaptıktan sonra</strong> satın alınabilir; satın alma ve “Satın alımları geri yükle” işlemi hesabınızla yapılır. Aboneliğiniz RevenueCat’te <strong>Mühür hesap kimliğinizle</strong> ilişkilendirilir. Bu kimlik, hesabınıza verilen rastgele bir numaradır; e-posta adresiniz veya adınız RevenueCat’e gönderilmez.</li>
+  <li>Giriş yapmamış olsanız da uygulama açılışta RevenueCat’e bağlanır; bu durumda RevenueCat cihazınızdaki uygulama için <strong>rastgele bir anonim kullanıcı kimliği</strong> oluşturur. Bu kimlik e-posta adresinizi, adınızı veya telefonunuzun donanım kimliklerini içermez; abonelik durumunu sorgulamak için kullanılır. Giriş yaptığınızda yerini Mühür hesap kimliğiniz alır.</li>
+  <li>RevenueCat’e ulaşan bilgi, aboneliğin teknik durumundan ibarettir: hangi ürün satın alındı, ne zaman, aktif mi, yenilenecek mi. Sunucumuz Pro durumunuzu RevenueCat’ten alır ve 6. bölümdeki “Pro durumu” kaydına yazar.</li>
+  <li>Hesabınızı sildiğinizde RevenueCat’teki müşteri kaydınız da silinir (bkz. 8. bölüm).</li>
   <li>“Satın alımları geri yükle” işlevi, Google Play hesabınızdaki mevcut aboneliği RevenueCat üzerinden sorgular.</li>
 </ul>
 <p>Bu hizmetlerin veri işleme koşulları için <a href="https://www.revenuecat.com/privacy/">RevenueCat Gizlilik Politikası</a> ve <a href="https://policies.google.com/privacy?hl=tr">Google Gizlilik Politikası</a> geçerlidir. Aboneliğinizi Google Play hesabınızın abonelikler bölümünden dilediğiniz zaman iptal edebilirsiniz.</p>
 
-<h2>6. İzinler ve neden isteniyor</h2>
+<h2 id="silme">8. Hesabınızı silme</h2>
+<hr class="rule">
+<p>Hesabınızı iki yoldan silebilirsiniz:</p>
+<ul>
+  <li><strong>Uygulamada:</strong> Ayarlar → Hesap → <strong>Hesabı sil</strong>.</li>
+  <li><strong>Uygulamaya erişemiyorsanız:</strong> <a href="hesap-silme.html">hesap silme sayfasındaki</a> adımlarla, Google hesabınızın e-posta adresinden bize yazarak.</li>
+</ul>
+<p>Hesabınız silindiğinde hesap bilgileriniz (e-posta, ad, Google kullanıcı kimliği), oturum kayıtlarınız, aylık kullanım ve Pro durumu kayıtlarınız sunucumuzdan, abonelik müşteri kaydınız da RevenueCat’ten silinir. Şunlar ayrıca bilinmelidir:</p>
+<ul>
+  <li><strong>Google kullanıcı kimliğinizin özeti</strong> ve o ay yaptığınız analiz sayısı, <strong>yalnızca hak sayımı için</strong> ayın sonuna kadar tutulur; böylece aynı Google hesabıyla yeniden giriş yapıldığında o ayın hakkı yenilenmez.</li>
+  <li>Bu cihazdan yapılmış hesapsız ilk analiz kaydı (kurulum kimliği özeti) hesapla bağı kaldırılmış olarak 6. bölümdeki süreye tabidir.</li>
+  <li><strong>Mühür Pro aboneliğiniz otomatik olarak iptal edilmez.</strong> Abonelik Google Play’de devam eder; Google Play → Ödemeler ve abonelikler bölümünden ayrıca iptal etmeniz gerekir.</li>
+  <li><strong>Telefonunuzdaki tarifler sunucumuzda değildir;</strong> hesap silmek onları silmez. Cihazdan silmek için <a href="#cihaz">5. bölümdeki</a> adımları kullanın.</li>
+</ul>
+
+<h2 id="paylasim">9. Verilerinizi kimler işler</h2>
+<hr class="rule">
+<p>Verilerinizi üçüncü taraflarla paylaşmıyoruz. Hizmetin çalışması için gerekli olan aşağıdaki <strong>hizmet sağlayıcılar</strong> verilerinizi yalnızca bizim adımıza ve talimatımız doğrultusunda işler:</p>
+<ul>
+  <li><strong>Google</strong> — Gemini API (yüklediğiniz tarif fotoğrafı veya metni, çözümlenmesi için), Google ile giriş (kimlik doğrulama), Google Play Faturalandırma (abonelik) ve Google Play Integrity (bütünlük doğrulaması).</li>
+  <li><strong>Supabase</strong> — sunucu fonksiyonlarımızı, kimlik doğrulama altyapısını ve 6. bölümdeki kayıtları barındırır (Frankfurt, AB).</li>
+  <li><strong>RevenueCat</strong> — abonelik durumunun yönetimi ve doğrulaması.</li>
+</ul>
+
+<div class="note note--warn">
+  <span class="note-label">Önemli uyarı</span>
+  <p>Google Gemini API’nin <strong>ücretli hizmetleri</strong> kullanılmaktadır. <a href="https://ai.google.dev/gemini-api/terms">Gemini API Ek Hizmet Şartları</a>’na göre ücretli hizmetlerde Google, gönderilen içeriği ve üretilen yanıtları <strong>ürünlerini geliştirmek için kullanmaz</strong> ve bunları veri işleyen sıfatıyla, Google’ın veri işleme ekine uygun olarak işler. Google bu içeriği yalnızca yasaklanmış kullanımları tespit edip önlemek ve yasal yükümlülüklerini yerine getirmek amacıyla sınırlı bir süre kayıt altında tutabilir. Yine de kişisel veya hassas bilgi içeren görseller yüklememenizi öneririz.</p>
+</div>
+
+<p>Veri satışı, veri kiralama, pazarlama amaçlı paylaşım veya veri simsarlarına aktarım yapmıyoruz. Yasal olarak zorunlu kılınan hâller (yetkili mahkeme veya idari makam kararı) saklıdır.</p>
+
+<h2 id="aktarim">10. Yurt dışına aktarım</h2>
+<hr class="rule">
+<p>Hizmetin çalışması için kişisel verileriniz aşağıdaki sağlayıcılar aracılığıyla Türkiye dışına aktarılır:</p>
+<div class="table-scroll">
+<table>
+  <thead>
+    <tr><th>Sağlayıcı</th><th>Ne için</th><th>Nerede</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Supabase</td>
+      <td>Sunucu fonksiyonları, kimlik doğrulama, 6. bölümdeki kayıtlar</td>
+      <td>Avrupa Birliği — Almanya (Frankfurt). Supabase’in alt işleyenleri ABD dahil başka ülkelerde bulunabilir.</td>
+    </tr>
+    <tr>
+      <td>Google LLC</td>
+      <td>Gemini API, Google ile giriş, Google Play Faturalandırma, Google Play Integrity</td>
+      <td>ABD dahil Türkiye ve AB dışındaki ülkeler</td>
+    </tr>
+    <tr>
+      <td>RevenueCat, Inc.</td>
+      <td>Abonelik durumunun yönetimi</td>
+      <td>ABD</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>Hizmetin sunulabilmesi için verileriniz Türkiye dışındaki sunucularda işlenir: Supabase (Almanya; alt işleyenleri arasında ABD’deki şirketler bulunur), Google (Gemini API, Google ile giriş, Google Play ve Play Integrity; ABD ve diğer ülkeler) ve RevenueCat (ABD). Bu aktarımlar, sağlayıcıların veri işleme sözleşmeleri çerçevesinde yapılır.</p>
+
+<h2>11. İzinler ve neden isteniyor</h2>
 <hr class="rule">
 
 <div class="table-scroll">
@@ -384,46 +541,55 @@
     <tr>
       <td><strong>Fotoğraflar / Galeri</strong></td>
       <td>Yalnızca “Galeriden seç” seçeneğine dokunduğunuzda</td>
-      <td>Seçtiğiniz tek bir fotoğrafı okumak için. Galeriniz taranmaz, diğer fotoğraflarınıza erişilmez.</td>
+      <td>Seçtiğiniz tek bir fotoğrafı okumak için. Android 13 ve üzerinde izin istenmez, sistemin fotoğraf seçicisi kullanılır. Galeriniz taranmaz, diğer fotoğraflarınıza erişilmez.</td>
     </tr>
     <tr>
-      <td><strong>İnternet</strong></td>
-      <td>Tarif çözümlemesi ve abonelik işlemlerinde</td>
-      <td>Yukarıda anlatılan işlemleri gerçekleştirmek için.</td>
+      <td><strong>Depolama (okuma / yazma)</strong> — yalnızca Android 12 ve altı</td>
+      <td>Yalnızca galeriden fotoğraf seçerken, eski Android sürümlerinde</td>
+      <td>Seçtiğiniz fotoğrafın okunması ve gönderilmeden önce küçültülmesi için fotoğraf kütüphanemizin bildirdiği izinlerdir. Uygulama ortak depolama alanınıza dosya kaydetmez; Android 13 ve üzerinde bu izinler hiç kullanılmaz.</td>
+    </tr>
+    <tr>
+      <td><strong>İnternet</strong> ve <strong>ağ durumu</strong></td>
+      <td>Kurulumda verilir (sorulmaz)</td>
+      <td>Tarif çözümlemesi, giriş ve abonelik işlemleri için; ağ durumu, bağlantı olup olmadığını anlamak için.</td>
+    </tr>
+    <tr>
+      <td><strong>Google Play Faturalandırma</strong></td>
+      <td>Kurulumda verilir (sorulmaz)</td>
+      <td>Mühür Pro aboneliğini Google Play üzerinden satın alabilmeniz için.</td>
+    </tr>
+    <tr>
+      <td><strong>Titreşim</strong></td>
+      <td>Kurulumda verilir (sorulmaz)</td>
+      <td>Pişirme zamanlayıcısı bittiğinde ve bazı dokunuşlarda kısa titreşimli geri bildirim için.</td>
+    </tr>
+    <tr>
+      <td><strong>Ses ayarları</strong> ve <strong>uyanık tutma</strong></td>
+      <td>Kurulumda verilir (sorulmaz)</td>
+      <td>Uygulamanın ses altyapısının, zamanlayıcı bitiş sesini çalarken kullandığı izinlerdir. Ekranın pişirirken açık kalması bu izinle değil, uygulama penceresinin ayarıyla sağlanır. Mikrofon izni istenmez.</td>
+    </tr>
+    <tr>
+      <td><strong>Uygulama içi teknik izin</strong> (<code>DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</code>)</td>
+      <td>Kurulumda verilir (sorulmaz)</td>
+      <td>Android kütüphanesinin uygulamanın kendi içindeki mesajlaşması için tanımladığı, başka uygulamalara açık olmayan izindir. Size ait hiçbir veriye erişim sağlamaz.</td>
     </tr>
   </tbody>
 </table>
 </div>
 
-<p>Bu izinlerden herhangi birini reddederseniz uygulama çökmez; yalnızca ilgili işlev kullanılamaz ve size açıklayıcı bir mesaj gösterilir. İzinleri istediğiniz zaman telefonunuzun ayarlarından geri alabilirsiniz.</p>
+<p>Kamera ve (Android 12 ve altında) depolama izinleri yalnızca ilgili seçeneğe dokunduğunuzda sorulur. Bu izinleri reddederseniz uygulama çökmez; yalnızca ilgili işlev kullanılamaz ve size açıklayıcı bir mesaj gösterilir. İzinleri istediğiniz zaman telefonunuzun ayarlarından geri alabilirsiniz. Uygulama ekran üstü çizim, biyometrik doğrulama, konum, mikrofon, kişiler veya reklam kimliği izni istemez.</p>
 
-<h2>7. Analitik, reklam ve izleme</h2>
+<h2>12. Analitik, reklam ve izleme</h2>
 <hr class="rule">
 <p>Mühür’de <strong>analitik aracı, çökme raporlama aracı, reklam ağı veya kullanıcı izleme teknolojisi bulunmamaktadır.</strong> Hangi ekranları açtığınız, uygulamayı ne sıklıkla kullandığınız veya nasıl gezindiğiniz bize iletilmez; bu verileri toplayan bir bileşen uygulamada yoktur.</p>
 <p>Kişiselleştirilmiş reklam amacıyla hiçbir veri toplamıyor, kullanmıyor veya satmıyoruz. <strong>Verilerinizi hiçbir koşulda satmıyoruz.</strong></p>
 
-<h2 id="paylasim">8. Kimlerle paylaşıyoruz</h2>
+<h2>13. Yaş sınırı</h2>
 <hr class="rule">
-<p>Verilerinizi yalnızca hizmetin çalışması için zorunlu olan aşağıdaki taraflarla paylaşırız:</p>
-<ul>
-  <li><strong>Google (Gemini API)</strong> — yüklediğiniz tarif fotoğrafı veya metni, çözümlenmesi için gönderilir. Yurt dışına aktarım içerir.</li>
-  <li><strong>Supabase</strong> — sunucu fonksiyonumuzu barındırır (Frankfurt, AB); istekler bu altyapıdan geçer.</li>
-  <li><strong>Google Play ve RevenueCat</strong> — yalnızca abonelik satın alma ve abonelik durumu doğrulaması için.</li>
-</ul>
+<p>Mühür <strong>18 yaş ve üzeri kullanıcılar içindir</strong>. Uygulama 18 yaşından küçüklere yönelik değildir; 18 yaşından küçükseniz Mühür’ü kullanmayın. Google ile girişte dahil, uygulama yaş bilgisi istemez ve toplamaz.</p>
+<p>18 yaşından küçük birinin uygulamayı kullandığını düşünüyorsanız: yüklenen içerik sunucularımızda saklanmaz; hesap açıldıysa <a href="#silme">8. bölümdeki</a> yollarla silinebilir; cihazdaki kayıtlar 5. bölümdeki adımlarla kaldırılabilir; ayrıca aşağıdaki adresten bize ulaşabilirsiniz.</p>
 
-<div class="note note--warn">
-  <span class="note-label">Önemli uyarı</span>
-  <p>Google Gemini API’nin <strong>ücretli katmanı</strong> kullanılmaktadır. Google’ın Gemini API hizmet şartları uyarınca, ücretli katmanda gönderilen içerik ve üretilen yanıtlar <strong>Google ürünlerini geliştirmek için kullanılmaz.</strong> Google bu içeriği yalnızca kötüye kullanımı tespit etmek ve yasal yükümlülüklerini yerine getirmek amacıyla sınırlı bir süre saklayabilir. Yine de kişisel veya hassas bilgi içeren görseller yüklememenizi öneririz.</p>
-</div>
-
-<p>Bunların dışında veri satışı, veri kiralama, pazarlama amaçlı paylaşım veya veri simsarlarına aktarım yapmıyoruz. Yasal olarak zorunlu kılınan hâller (yetkili mahkeme veya idari makam kararı) saklıdır.</p>
-
-<h2>9. Yaş sınırı</h2>
-<hr class="rule">
-<p>Mühür <strong>18 yaş ve üzeri kullanıcılar içindir</strong>. Uygulama 18 yaşından küçüklere yönelik değildir; 18 yaşından küçükseniz Mühür’ü kullanmayın. Uygulamada hesap oluşturma bulunmadığı için yaş bilgisi toplanmaz.</p>
-<p>18 yaşından küçük birinin uygulamaya fotoğraf veya metin yüklediğini düşünüyorsanız: yüklenen içerik sunucularımızda saklanmaz; cihazdaki kayıtlar yukarıdaki <em>“Bu verileri nasıl silersiniz”</em> adımlarıyla kaldırılabilir; ayrıca aşağıdaki adresten bize ulaşabilirsiniz.</p>
-
-<h2>10. KVKK kapsamındaki haklarınız</h2>
+<h2>14. KVKK kapsamındaki haklarınız</h2>
 <hr class="rule">
 <p>6698 sayılı Kişisel Verilerin Korunması Kanunu’nun <strong>11. maddesi</strong> uyarınca, veri sorumlusuna başvurarak şu haklara sahipsiniz:</p>
 <ul>
@@ -439,23 +605,24 @@
 </ul>
 
 <h3>Başvuru yolu</h3>
-<p>Bu haklarınızı kullanmak için taleplerinizi <a href="mailto:karuef@gmail.com">karuef@gmail.com</a> adresine iletebilirsiniz. Başvurunuzu, talebinizi anlaşılır biçimde belirterek gönderin; <strong>en geç otuz gün içinde</strong> ücretsiz olarak yanıtlanır.</p>
-<p><strong>Önemli bir sınır:</strong> Hesap sistemimiz olmadığı ve gönderdiğiniz içeriği saklamadığımız için, bir talebi <em>size ait</em> bir kayıtla eşleştirmemiz teknik olarak mümkün değildir — elimizde eşleştirebileceğimiz bir kayıt bulunmamaktadır. Bu nedenle erişim, düzeltme ve silme talepleri pratikte cihazınızdaki verilerle ilgilidir ve bunları doğrudan kendiniz silebilirsiniz. Başvurunuza vereceğimiz yanıtta durumu açıkça belirtiriz.</p>
+<p>Bu haklarınızı kullanmak için taleplerinizi <a href="mailto:karuef@gmail.com">karuef@gmail.com</a> adresine iletebilirsiniz. Hesabınızla ilgili taleplerde, kimliğinizi doğrulayabilmemiz için başvuruyu <strong>Mühür’e giriş yaptığınız Google hesabının e-posta adresinden</strong> gönderin. Başvurunuz <strong>en geç 30 gün içinde</strong>, ücretsiz olarak, yazılı veya e-posta ile yanıtlanır.</p>
+<p>Sunucumuzda e-posta adresinizle eşleştirebileceğimiz kayıtlar yalnızca 6. bölümde sayılanlardır. Tarifleriniz ve cihazdaki diğer veriler bize ulaşmadığı için bunlarla ilgili talepleri cihazınızda doğrudan kendiniz yerine getirebilirsiniz; başvurunuza vereceğimiz yanıtta durumu açıkça belirtiriz.</p>
 <p>Başvurunuzun sonucundan memnun kalmazsanız <strong>Kişisel Verileri Koruma Kurulu</strong>’na şikâyette bulunma hakkınız saklıdır.</p>
 
-<h2>11. Güvenlik</h2>
+<h2>15. Güvenlik</h2>
 <hr class="rule">
-<p>Cihazınız ile sunucularımız arasındaki ve sunucularımız ile Google arasındaki tüm iletişim <strong>HTTPS ile şifrelenir.</strong> Servis anahtarlarımız sunucu tarafında saklanır, uygulamanın içine gömülmez ve yanıtlara veya günlüklere yazılmaz.</p>
+<p>Cihazınız ile sunucularımız arasındaki ve sunucularımız ile hizmet sağlayıcılarımız arasındaki tüm iletişim <strong>HTTPS ile şifrelenir.</strong> Servis anahtarlarımız sunucu tarafında saklanır, uygulamanın içine gömülmez ve yanıtlara veya günlüklere yazılmaz. Sunucudaki kayıt tablolarına uygulamadan doğrudan erişim kapalıdır; kurulum kimliği, IP adresi ve silinen hesapların Google kimliği yalnızca gizli anahtarlı özet hâlinde tutulur.</p>
 <p>Hiçbir yöntem mutlak güvenlik sağlamasa da, sakladığımız veri miktarını en aza indirmek uyguladığımız temel korumadır: tutmadığımız veri sızdırılamaz.</p>
 
-<h2>12. Bu politikadaki değişiklikler</h2>
+<h2>16. Bu politikadaki değişiklikler</h2>
 <hr class="rule">
 <p>Bu politikayı uygulamanın işlevleri değiştikçe güncelleyebiliriz. Güncellenen metin bu sayfada yayımlanır ve en üstteki <em>“Son güncelleme”</em> tarihi değiştirilir. Veri işleme biçiminde önemli bir değişiklik olması hâlinde uygulama içinde de bilgilendirme yaparız.</p>
 
-<h2>13. İletişim</h2>
+<h2>17. İletişim</h2>
 <hr class="rule">
 <div class="card">
-  <p><strong>Veri sorumlusu:</strong> Volkan Kezer (bireysel geliştirici), İzmir / Türkiye</p>
+  <p><strong>Veri sorumlusu:</strong> Volkan Kezer (bireysel geliştirici)</p>
+  <p>Folkart Time Plaza, Kazımdirik Mah. 296. Sk. No: 8 D:702, 35100 Bornova/İzmir</p>
   <p>Gizlilikle ilgili her türlü soru, talep ve KVKK başvurusu için:</p>
   <p><strong><a href="mailto:karuef@gmail.com">karuef@gmail.com</a></strong></p>
   <p style="color: var(--ink-soft); font-size: 15px; margin-bottom: 0;">Uygulama: Mühür (<code>com.muhur.app</code>) · Google Play</p>
@@ -463,7 +630,8 @@
 
 <footer>
   <p>Mühür — Gizlilik Politikası</p>
-  <p>Son güncelleme: 17 Ekim 2026</p>
+  <p>Son güncelleme: <span class="placeholder">23 Ekim 2026</span></p>
+  <p><a href="aydinlatma.html">Aydınlatma metni</a> · <a href="kosullar.html">Kullanım Koşulları</a> · <a href="hesap-silme.html">Hesap silme</a></p>
 </footer>
 
 </div>
