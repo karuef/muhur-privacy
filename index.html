@@ -255,7 +255,7 @@
 <header>
   <p class="eyebrow">Mühür</p>
   <h1>Gizlilik Politikası</h1>
-  <p class="updated">Son güncelleme: 23 Ekim 2026</p>
+  <p class="updated">Son güncelleme: 5 Kasım 2026</p>
 </header>
 
 <div class="card card--summary">
@@ -299,6 +299,9 @@
 <h3>Günlük kullanım sınırı</h3>
 <p>Hizmetin kötüye kullanılmasını ve aşırı yüklenmesini önlemek için sunucumuz, gelen çözümleme isteklerinin günlük sayısını da tutar. Bunun için kurulum kimliği ve isteğin geldiği <strong>IP adresi</strong>, gizli bir değerle tuzlanmış SHA-256 özetine dönüştürülerek yalnızca o günün sayacında anahtar olarak kullanılır. Ham hâlleri saklanmaz, günlüklere yazılmaz; özet her gün değiştiği için kayıtlar günler arasında ilişkilendirilemez. Bu sayaç kayıtları <strong>en geç 2 gün içinde otomatik olarak silinir.</strong></p>
 
+<h3>Aynı içeriğin kısa süre içinde yeniden analizi</h3>
+<p>Bir analiz başarıyla tamamlandığında, aynı fotoğrafı veya metni <strong>10 dakika içinde bir kez</strong> analiz hakkınızdan düşmeden yeniden analiz edebilmeniz için sunucumuz kısa ömürlü bir kayıt tutar. Bu kayıt <strong>takma adlı kişisel veridir</strong>. Kayıt üç şeyden oluşur: hesabınızın (hesapsız kullanımda telefonunuzun) kimliği ile gönderdiğiniz içeriğin özetinden hesaplanan, içeriğinizden ve kimliğinizden geri elde edilemeyen, yalnızca bizim gizli anahtarımızla eşleştirilebilen tek yönlü bir özet (HMAC-SHA256); kaydın durumu; zamanları. Fotoğrafınız, metniniz, tarifiniz ve kimliğinizin kendisi bu kayda yazılmaz. Kayıt her analiz başlarken geçici olarak oluşur; analiz başarısız olursa silinir, başarılı olursa aşağıdaki süreyle tutulur. Kayıt, 10 dakikalık süre dolduktan 1 saat sonra, yani analizden <strong>yaklaşık 1 saat 10 dakika sonra</strong>, sunucuya gelen ilk analiz isteğinde kendiliğinden silinir. Bu özellik geçici olarak kapatılırsa kendiliğinden silme de durur; özellik 1 saatten uzun kapalı kalacaksa kayıtları elle sileriz. Yeniden analizde içerik, ilk analizdeki gibi yeniden Google’a (Gemini API) gönderilir.</p>
+
 <h3>Google Play Integrity</h3>
 <p>Android’de her analiz isteğinden önce uygulama, Google Play hizmetlerinden bir <strong>bütünlük belirteci</strong> ister ve isteğe ekler. Sunucumuz bu belirteci Google’ın Play Integrity hizmetine doğrulatır. Google’dan dönen sonuç; isteğin Google Play’den tanınan Mühür uygulamasından gelip gelmediğini, cihazın temel bütünlük denetimini geçip geçmediğini ve belirtecin bu isteğe ve bu ana ait olup olmadığını gösterir.</p>
 <p>Amaç, sahte veya otomatik isteklerle analiz haklarının ve hizmetin kötüye kullanılmasını önlemektir. Sonucun yalnızca özeti (ör. “geçerli”, “geçersiz”, “alınamadı” ve kısa bir neden kodu) teknik günlüklere yazılır; veritabanına kaydedilmez. Belirteç cihazınızda Google Play hizmetleri tarafından üretilir; Google’ın bu sırada işlediği cihaz bilgileri <a href="https://policies.google.com/privacy?hl=tr">Google Gizlilik Politikası</a>’na tabidir. Belirteç alınamazsa analiz isteğiniz yine gönderilir.</p>
@@ -325,12 +328,12 @@
 <hr class="rule">
 <p><strong>Bizim tarafımızda hayır.</strong> Sunucu fonksiyonumuz, aldığı fotoğrafı veya metni:</p>
 <ul>
-  <li>hiçbir veritabanına <strong>kaydetmez</strong> — sunucumuzda tarif veya kullanıcı içeriği tutan bir tablo yoktur;</li>
+  <li>hiçbir veritabanına <strong>kaydetmez</strong> — sunucumuzda tarif veya kullanıcı içeriği tutan bir tablo yoktur (aynı içeriğin 10 dakika içinde yeniden analizi için yalnızca içerikten ve kimlikten hesaplanan takma adlı, tek yönlü, kısa ömürlü bir özet tutulur; bkz. 2. bölüm);</li>
   <li>hiçbir dosya deposuna <strong>yüklemez</strong>;</li>
   <li>günlük (log) kayıtlarına <strong>yazmaz</strong>.</li>
 </ul>
 <p>İçerik yalnızca isteğin işlendiği süre boyunca bellekte bulunur ve yanıt döndükten sonra kaybolur.</p>
-<p>Teknik günlüğe yalnızca isteğin türü (fotoğraf/metin), sonucu, süresi, yanıt boyutu, kullanılan işlem birimi (token) sayıları, hesap türü (hesapsız / girişli) ve bütünlük doğrulamasının özeti gibi bilgiler yazılır; bir hata oluştuğunda buna yalnızca hatanın türü eklenir. <strong>Gönderdiğiniz fotoğraf veya tarif metni, e-posta adresiniz, kimlikleriniz ve IP adresiniz bu kayıtlara yazılmaz.</strong></p>
+<p>Teknik günlüğe yalnızca isteğin türü (fotoğraf/metin), sonucu, süresi, yanıt boyutu, kullanılan işlem birimi (token) sayıları, hesap türü (hesapsız / girişli) ve bütünlük doğrulamasının özeti gibi bilgiler yazılır; bir hata oluştuğunda buna yalnızca hatanın türü eklenir. <strong>Gönderdiğiniz fotoğraf veya tarif metni, e-posta adresiniz ve IP adresiniz bu kayıtlara yazılmaz.</strong> Kimlikleriniz de yazılmaz; tek istisna şudur: başarısız bir analizde düşen analiz hakkınız otomatik olarak geri verilemezse, hakkınızı elle düzeltebilmemiz için o kayda hesap numaranızın (kullanıcı kimliğinizin) yalnızca ilk 8 karakteri eklenir (hesapsız kullanımda hiçbir kimlik eklenmez). Bu parça takma adlı kişisel veridir ve diğer teknik günlükler gibi 7 gün sonra kendiliğinden silinir.</p>
 <p>Ayrıca, herhangi bir internet hizmetinde olduğu gibi, altyapı sağlayıcımız (Supabase) sunucularına ulaşan her istek için otomatik bir <strong>erişim kaydı</strong> tutar: <strong>IP adresi</strong>, IP adresinden çıkarılan <strong>yaklaşık konum</strong> (ülke, bölge, şehir, posta kodu) ve internet sağlayıcısı, <strong>uygulama/cihaz bilgisi</strong> (tarayıcı kimliği satırı), bağlantının teknik parmak izi, istenen adres, zaman damgası, istek ve yanıt boyutu, yanıt durumu. Bu kayıtlarda gönderdiğiniz fotoğraf veya metin, kurulum kimliğiniz ve bütünlük belirteci bulunmaz; oturum anahtarı yalnızca özet hâlinde yer alır. Kayıtlar altyapı düzeyinde oluşur, hizmetin çalışması, hataların incelenmesi ve kötüye kullanımın önlenmesi amacına hizmet eder ve bizim tarafımızdan tarif içeriğiyle ilişkilendirilmez.</p>
 
 <h3>Google tarafında saklama</h3>
@@ -425,13 +428,18 @@
       <td>En geç 2 gün</td>
     </tr>
     <tr>
+      <td>Kısa süreli yeniden analiz kaydı</td>
+      <td>Hesap (hesapsız kullanımda telefon) kimliği ile içerik özetinden gizli anahtarla hesaplanan takma adlı, tek yönlü özet; kaydın durumu ve zamanları. İçerik ve kimliğin kendisi yok</td>
+      <td>10 dakika. Süre dolduktan 1 saat sonra (analizden yaklaşık 1 saat 10 dakika sonra) sunucuya gelen ilk analiz isteğinde kendiliğinden silinir. Hesabınızı sildiğinizde bu kayıt ayrıca silinemez, çünkü yüklediğiniz içeriği elimizde tutmadığımız için hangi kaydın size ait olduğunu bulamayız; kayıt aynı sürede kendiliğinden silinir</td>
+    </tr>
+    <tr>
       <td>Silinen hesap kaydı</td>
       <td>Google kullanıcı kimliğinin özeti, hesabın silindiği ay yaptığı analiz sayısı</td>
       <td>Silindiği ayın sonuna kadar (Türkiye saati). Süresi dolan kayıt, sonraki ilk giriş veya hesap silme işleminde silinir</td>
     </tr>
     <tr>
       <td>Teknik günlükler</td>
-      <td>4. bölümde sayılan sayısal bilgiler ve özetler; içerik ve kimlik yok</td>
+      <td>4. bölümde sayılan sayısal bilgiler ve özetler; içerik yok; kimlik yalnızca hak iadesi yapılamadığında, hesap numarasının (kullanıcı kimliğinin) ilk 8 karakteri olarak (takma adlı)</td>
       <td>7 gün (Supabase’in kullandığımız plan için belirttiği kayıt saklama süresi; silme sağlayıcı tarafından otomatik yapılır)</td>
     </tr>
     <tr>
@@ -467,6 +475,7 @@
 <ul>
   <li><strong>Google kullanıcı kimliğinizin özeti</strong> ve o ay yaptığınız analiz sayısı, <strong>yalnızca hak sayımı için</strong> ayın sonuna kadar tutulur; böylece aynı Google hesabıyla yeniden giriş yapıldığında o ayın hakkı yenilenmez.</li>
   <li>Bu cihazdan yapılmış hesapsız ilk analiz kaydı (kurulum kimliği özeti) hesapla bağı kaldırılmış olarak 6. bölümdeki süreye tabidir.</li>
+  <li>Son 10 dakika içinde analiz yaptıysanız <strong>kısa süreli yeniden analiz kaydı</strong> (takma adlı özet) hesap silinirken ayrıca silinemez; analizden yaklaşık 1 saat 10 dakika sonra sunucuya gelen ilk analiz isteğinde kendiliğinden silinir (6. bölüm).</li>
   <li><strong>Mühür Pro aboneliğiniz otomatik olarak iptal edilmez.</strong> Abonelik Google Play’de devam eder; Google Play → Ödemeler ve abonelikler bölümünden ayrıca iptal etmeniz gerekir.</li>
   <li><strong>Telefonunuzdaki tarifler sunucumuzda değildir;</strong> hesap silmek onları silmez. Cihazdan silmek için <a href="#cihaz">5. bölümdeki</a> adımları kullanın.</li>
 </ul>
@@ -598,7 +607,7 @@
 
 <h3>Başvuru yolu</h3>
 <p>Bu haklarınızı kullanmak için taleplerinizi <a href="mailto:karuef@gmail.com">karuef@gmail.com</a> adresine iletebilirsiniz. Hesabınızla ilgili taleplerde, kimliğinizi doğrulayabilmemiz için başvuruyu <strong>Mühür’e giriş yaptığınız Google hesabının e-posta adresinden</strong> gönderin. Başvurunuz <strong>en geç 30 gün içinde</strong>, ücretsiz olarak, yazılı veya e-posta ile yanıtlanır.</p>
-<p>Sunucumuzda e-posta adresinizle eşleştirebileceğimiz kayıtlar yalnızca 6. bölümde sayılanlardır. Tarifleriniz ve cihazdaki diğer veriler bize ulaşmadığı için bunlarla ilgili talepleri cihazınızda doğrudan kendiniz yerine getirebilirsiniz; başvurunuza vereceğimiz yanıtta durumu açıkça belirtiriz.</p>
+<p>Sunucumuzda e-posta adresinizle eşleştirebileceğimiz kayıtlar yalnızca 6. bölümde sayılanlardır. 6. bölümdeki kısa süreli yeniden analiz kaydını ise, yüklediğiniz içeriği elimizde tutmadığımız için başvuranla eşleştiremeyiz; bu kayıt kısa sürede kendiliğinden silinir. Tarifleriniz ve cihazdaki diğer veriler bize ulaşmadığı için bunlarla ilgili talepleri cihazınızda doğrudan kendiniz yerine getirebilirsiniz; başvurunuza vereceğimiz yanıtta durumu açıkça belirtiriz.</p>
 <p>Başvurunuzun sonucundan memnun kalmazsanız <strong>Kişisel Verileri Koruma Kurulu</strong>’na şikâyette bulunma hakkınız saklıdır.</p>
 
 <h2>15. Güvenlik</h2>
@@ -622,7 +631,7 @@
 
 <footer>
   <p>Mühür — Gizlilik Politikası</p>
-  <p>Son güncelleme: 23 Ekim 2026</p>
+  <p>Son güncelleme: 5 Kasım 2026</p>
   <p><a href="aydinlatma.html">Aydınlatma metni</a> · <a href="kosullar.html">Kullanım Koşulları</a> · <a href="hesap-silme.html">Hesap silme</a></p>
 </footer>
 
