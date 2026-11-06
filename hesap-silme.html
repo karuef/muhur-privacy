@@ -182,7 +182,7 @@
 <header>
   <p class="eyebrow">Mühür</p>
   <h1>Hesabını Sil</h1>
-  <p class="updated">Son güncelleme: 5 Kasım 2026</p>
+  <p class="updated">Son güncelleme: 6 Kasım 2026</p>
 </header>
 
 <p>Bu sayfa, <strong>Mühür</strong> (<code>com.muhur.app</code>, Volkan Kezer) uygulamasındaki hesabını ve hesabınla ilişkili verileri nasıl silebileceğini anlatır.</p>
@@ -207,19 +207,20 @@
 <h2>3. Neler silinir</h2>
 <hr class="rule">
 <ul>
-  <li>Hesap bilgilerin: e-posta adresin, adın, Google kullanıcı kimliğin ve Google’ın ilettiği profil fotoğrafı bağlantısı;</li>
+  <li>Hesap kaydındaki bilgilerin: e-posta adresin, adın, Google kullanıcı kimliğin ve Google’ın ilettiği profil fotoğrafı bağlantısı;</li>
   <li>Oturum kayıtların;</li>
-  <li>Aylık analiz sayaçların ve Pro durumu kaydın;</li>
+  <li>Analiz sayaçların ve Pro durumu kaydın;</li>
   <li>Abonelik sağlayıcımız RevenueCat’teki müşteri kaydın.</li>
 </ul>
 
 <h2>4. Silindikten sonra ne kalır</h2>
 <hr class="rule">
 <ul>
-  <li><strong>Google kullanıcı kimliğinin özeti</strong> ve o ay yaptığın analiz sayısı, <strong>ayın sonuna kadar</strong> tutulur. Bu kayıt <strong>yalnızca hak sayımı</strong> içindir: aynı Google hesabıyla yeniden giriş yaparsan o ayın hakkı yenilenmez. Özet gizli bir anahtarla hesaplanır, e-posta adresini veya adını içermez. Ay bitince süresi dolar ve silinir.</li>
-  <li>Bu telefondan hesapsız yaptığın ilk analizin kaydı (kurulum kimliğinin özeti ve analiz sayısı) hesabınla bağı kaldırılmış olarak kalır ve son kullanımdan 400 gün sonra silinir.</li>
+  <li><strong>Google kullanıcı kimliğinin özeti</strong> ve kullandığın <strong>ücretsiz analiz sayısı</strong>, silmeden itibaren <strong>2 yıl</strong> tutulur. Bu kayıt <strong>yalnızca ücretsiz hakların yeniden kazanılmasını önlemek</strong> içindir: bu sürede aynı Google hesabıyla yeniden kaydolursan ücretsiz hakların yenilenmez. Özet gizli bir anahtarla hesaplanır, geri döndürülemez; bu kayıt e-posta adresini, adını veya tariflerini içermez. 2 yıl dolunca silinir.</li>
+  <li>Mühür Pro’yken o ay yaptığın analiz sayısı da aynı özetle <strong>ayın sonuna kadar</strong> tutulur; aynı ay içinde yeniden kaydolursan o ayın Pro hakkı yenilenmez.</li>
+  <li>Bu telefonda yapılan ücretsiz analizlerin kaydı (cihaz kimliğinin özeti ve analiz sayısı; uygulamanın eski sürümlerinde kurulum kimliğinin özeti) hesabınla bağı kaldırılmış olarak kalır ve son kullanımdan 400 gün sonra silinir.</li>
   <li>Son 10 dakika içinde analiz yaptıysan, <strong>kısa süreli yeniden analiz kaydın</strong> (takma adlı özet) hesap silinirken ayrıca silinemez; analizden yaklaşık 1 saat 10 dakika sonra sunucuya gelen ilk analiz isteğinde kendiliğinden silinir.</li>
-  <li>Sunucudaki teknik günlükler ve altyapı erişim kayıtları (IP adresi ve cihaz bilgisi dahil), altyapı sağlayıcısının 7 günlük saklama süresi sonunda otomatik olarak silinir. Bir analizde hakkın otomatik olarak iade edilemediyse, o günlük satırında hesap numaranın (kullanıcı kimliğinin) yalnızca ilk 8 karakteri bulunabilir; bu satır da 7 günde silinir.</li>
+  <li>Sunucudaki teknik günlükler ve altyapı erişim kayıtları (IP adresi, yaklaşık konum, cihaz bilgisi, hesap numaran ve oturum numaran; giriş işlemi kayıtlarında e-posta adresin ve bazen adın dahil) altyapı sağlayıcımız Supabase tarafından tutulur ve sağlayıcının saklama süresi dolunca otomatik olarak silinir; bu süre en fazla 90 gündür. Bir analizde hakkın otomatik olarak iade edilemediyse, o günlük satırında hesap numaranın (kullanıcı kimliğinin) yalnızca ilk 8 karakteri bulunabilir; bu satır da aynı süre sonunda silinir.</li>
 </ul>
 
 <div class="note">
@@ -234,7 +235,7 @@
 
 <footer>
   <p>Mühür — Hesap Silme</p>
-  <p>Son güncelleme: 5 Kasım 2026</p>
+  <p>Son güncelleme: 6 Kasım 2026</p>
   <p><a href="index.html">Gizlilik Politikası</a> · <a href="aydinlatma.html">Aydınlatma metni</a> · <a href="kosullar.html">Kullanım Koşulları</a></p>
 </footer>
 
